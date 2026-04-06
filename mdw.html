@@ -28,7 +28,45 @@
             <p class="label-linha">Módulos e Processos</p>
             <h2 class="titulo-secao">MDW</h2>
             
-            <p>Esta é uma página placeholder para o módulo MDW. Gerenciamento de Middleware e Data Warehouse serão adicionados aqui.</p>
+            <p>A MDW é um portal estratégico que conecta diversos processos e ferramentas utilizados no ciclo de vida da entrega de serviços TOTVS. Seu objetivo principal é promover uma interação 360° entre o time TOTVS, clientes e fornecedores, integrando sistemas na etapa de adoção da jornada do cliente.</p>
+
+            <h3>Resumo das principais páginas e suas funcionalidades:</h3>
+
+            <h4>Homepage (Página Inicial)</h4>
+            <p>É o seu ponto de partida para uma visão consolidada do dia a dia.</p>
+            <ul>
+                <li><strong>Central de Ajuda:</strong> Localizada no canto superior direito, oferece orientações de uso, novidades do produto e acesso à Universidade TOTVS.</li>
+                <li><strong>Menu de Acessos Rápidos:</strong> Atalhos para ferramentas como TOTVS Collab (gestão de tarefas), Reserve (despesas), Busca no Drive e Aceleradores de Implantação.</li>
+                <li><strong>Widget Meus Projetos:</strong> Lista todos os projetos onde você está atrelado no PSA, permitindo buscas e filtragem por favoritos.</li>
+                <li><strong>Calendário de Serviços:</strong> Exibe eventos importantes (fechamentos, auditorias) e sua agenda de alocação vinda do PSA.</li>
+                <li><strong>Apontamento de Horas:</strong> Widget para envio de horas pendentes (status rascunho) diretamente para o PSA.</li>
+                <li><strong>Aprovações:</strong> Lista pendências de aprovação associadas ao seu usuário.</li>
+            </ul>
+
+            <h4>Workarea (Área de Trabalho do Projeto)</h4>
+            <p>Acessada ao clicar no nome de um projeto específico, reúne ferramentas para a execução e gestão da entrega.</p>
+            <ul>
+                <li><strong>Dashboard de Informações:</strong> Exibe dados cadastrais, tempo de vida, escopo (objetivos, premissas) e progresso físico do projeto.</li>
+                <li><strong>Riscos e Problemas:</strong> Permite registrar e monitorar ocorrências, alimentando uma Matriz de Risco que é vinculada ao Status Report.</li>
+                <li><strong>Marcos do Projeto:</strong> Visualização dos marcos de entrega definidos no PSA, com opções para anexar termos de aceite e enviar para aprovação.</li>
+                <li><strong>Indicadores de Gestão:</strong> Dashboards financeiros (valor vendido, margem, realizado) e de qualidade integrados ao GoodData Analytics.</li>
+                <li><strong>Assinatura Eletrônica:</strong> Upload e gestão de documentos para assinatura do cliente via integração com o TAE (TOTVS Assinatura Eletrônica).</li>
+                <li><strong>Status Report:</strong> Gera um relatório completo do status do projeto (financeiro, entregas, riscos) com apenas um clique para compartilhamento.</li>
+            </ul>
+
+            <h4>Central de Projetos (Visão do Cliente)</h4>
+            <p>Portal exclusivo para que o cliente tenha autonomia e visibilidade sobre seus projetos ativos.</p>
+            <ul>
+                <li><strong>Aprovações do Cliente:</strong> O cliente pode aprovar ou reprovar marcos de entrega ou atividades de banco de horas.</li>
+                <li><strong>Esclarecimento de Notas:</strong> Acesso ao detalhamento de faturas (Hora e Material) sem necessidade de abrir tickets.</li>
+                <li><strong>Ponto Focal:</strong> Permite que o cliente gerencie quem é o responsável por assinar documentos e responder pesquisas.</li>
+                <li><strong>Mensagens:</strong> Canal direto para envio de dúvidas ao responsável TOTVS, com integração bidirecional com o PSA.</li>
+            </ul>
+
+            <blockquote>
+                <p><strong>Observação importante:</strong> Se você tiver dúvidas sobre temas específicos de outras áreas, como PMO CST, detalhes profundos de configuração do PSA, ou políticas de NPS, recomendo procurar a área responsável, pois esses assuntos não fazem parte do escopo de suporte da plataforma MDW.</p>
+            </blockquote>
+
         </section>
     </div>
 
@@ -43,36 +81,6 @@
             <div class="modal-footer"><button class="btn-close-footer" onclick="fecharModal()">Fechar</button></div>
         </div>
     </div>
-
-    <!--
-    <div class="assistente-container">
-        <div class="balao-chat" id="chatBubble">
-            <span class="fechar-balao" onclick="fecharBalaoChat(event)">&minus;</span>
-            <p onclick="toggleChat()">Olá, para mais perguntas, clique aqui e pergunte ao nosso <strong>assistente virtual!</strong></p>
-        </div>
-        <div class="icone-assistente" id="iconeGemini" onclick="toggleChat()">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="white" stroke-width="1.5"/>
-                <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
-                <path d="M12 7V9M12 15V17M7 12H9M15 12H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-            </svg>
-        </div>
-    </div>
-
-    <div id="janelaChat" class="chat-window">
-        <div class="chat-header">
-            <div class="header-info"><span class="status-dot"></span><span>Assistente Virtual</span></div>
-            <button class="btn-close-chat" onclick="toggleChat()">&times;</button>
-        </div>
-        <div class="chat-content" id="chatContent">
-            <div class="msg-bot">Olá! Como posso ajudar você a navegar pelo nosso catálogo de serviços hoje?</div>
-        </div>
-        <div class="chat-footer">
-            <input type="text" id="chatInput" placeholder="Digite sua dúvida...">
-            <button onclick="enviarMensagemChat()"><i class="fa-solid fa-paper-plane"></i></button>
-        </div>
-    </div>
-    -->
 
     <footer class="footer">
         <img src="https://tdn.totvs.com/download/attachments/1032134307/logo-totvs-branco%20%281%29.webp?api=v2" alt="TOTVS Logo" class="logo-footer">

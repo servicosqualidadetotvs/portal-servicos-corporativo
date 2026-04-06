@@ -13,6 +13,9 @@
 body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    letter-spacing: 0.01em;
     background-color: var(--white);
     color: var(--text-main);
     transition: background-color 0.3s, color 0.3s;
@@ -21,6 +24,104 @@ body {
 body.dark {
     background-color: var(--bg-dark);
     color: var(--text-dark);
+}
+
+p {
+    margin: 0 0 1.35em;
+    color: #414141;
+}
+
+.section-area {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 18px;
+    box-shadow: 0 18px 45px rgba(0, 0, 0, 0.06);
+    border: 1px solid rgba(0,0,0,0.04);
+}
+
+.section-area h2 {
+    font-size: 38px;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0 0 20px;
+}
+
+.section-area h3 {
+    font-size: 22px;
+    margin: 0 0 22px;
+    font-weight: 600;
+    color: var(--primary-blue);
+}
+
+.section-area h4 {
+    font-size: 18px;
+    margin: 28px 0 12px;
+    color: #1f2c42;
+}
+
+.section-area ul {
+    margin: 0 0 28px;
+    padding-left: 0;
+    list-style: none;
+    display: grid;
+    gap: 12px;
+}
+
+.section-area li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+    color: #3e3e3e;
+}
+
+.section-area li::before {
+    content: "\2022";
+    position: absolute;
+    left: 0;
+    top: 0.3em;
+    color: var(--primary-blue);
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.section-area blockquote {
+    background-color: #f3f7fb;
+    border-left: 4px solid var(--primary-blue);
+    padding: 22px 24px;
+    margin: 30px 0 10px;
+    font-style: normal;
+    color: #2b3b52;
+}
+
+.section-area blockquote p {
+    margin: 0;
+}
+
+body.dark .section-area {
+    background: var(--card-bg-dark);
+    border-color: var(--border-dark);
+    color: var(--text-dark);
+}
+
+body.dark .section-area h2,
+body.dark .section-area h3,
+body.dark .section-area h4 {
+    color: #ffffff;
+}
+
+body.dark .section-area p,
+body.dark .section-area li {
+    color: var(--text-dark);
+}
+
+body.dark .section-area blockquote {
+    background-color: rgba(255,255,255,0.05);
+    border-left-color: #5f8ed1;
+    color: #d5e4ff;
+}
+
+body.dark .section-area li::before {
+    color: #8ab7ff;
 }
 
 /* Hero Section Atualizada para Vídeo e Alinhamento à Esquerda */
@@ -63,11 +164,12 @@ body.dark {
     max-width: 600px; /* Limita a largura para manter a leitura agradável */
 }
 
-.hero h1 { font-size: 48px; margin: 10px 0; }
-.hero h1 span { color: var(--white); } /* 2026 agora é branco */
-.btn-info { background: #000; color: white; border: 1px solid #ffffff44; padding: 10px 25px; border-radius: 20px; cursor: pointer; margin-top: 10px;}
-.btn-theme { background: transparent; color: white; border: 1px solid #ffffff44; padding: 10px 15px; border-radius: 20px; cursor: pointer; margin-top: 10px; margin-left: 10px; transition: all 0.3s;}
-.btn-theme:hover { background: rgba(255,255,255,0.1); }
+.hero h1 { font-size: 48px; margin: 16px 0 8px; line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; }
+.hero h1 span { color: var(--white); }
+.hero p { font-size: 16px; margin: 0; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 0.02em; }
+.btn-info { background: #000; color: white; border: 1px solid #ffffff44; padding: 12px 26px; border-radius: 22px; cursor: pointer; margin-top: 18px; font-weight: 600; }
+.btn-theme { background: transparent; color: white; border: 1px solid #ffffff44; padding: 12px 18px; border-radius: 22px; cursor: pointer; margin-top: 18px; margin-left: 12px; transition: all 0.3s; }
+.btn-theme:hover { background: rgba(255,255,255,0.12); }
 
 /* Main Content */
 .container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
@@ -138,6 +240,7 @@ body.dark .modal-card { background: var(--card-bg-dark); color: var(--text-dark)
 
 /* Footer */
 .footer { background: var(--primary-blue); color: white; padding: 20px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
-.footer p { margin: 0; font-size: 14px; }
+.footer p { margin: 0; font-size: 14px; color: white; }
+.footer a { color: white; }
 .logo-header { width: 150px; height: auto; margin-bottom: 10px; }
 .logo-footer { width: 100px; height: auto; margin-bottom: 10px; }
