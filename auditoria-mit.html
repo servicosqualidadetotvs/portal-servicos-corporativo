@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auditoria MIT - Portal de Serviços Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <img src="https://tdn.totvs.com/download/attachments/1032134307/logo-totvs-branco%20%281%29.webp?api=v2" alt="TOTVS Logo" class="logo-header">
+            <p>Portal de Gestão e Serviços</p>
+            <h1>Serviços Corporativos <span>2026</span></h1>
+            <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Central de informações da equipe de Serviços Corporativos.')">
+                Informações gerais sobre o portal
+            </button>
+            <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section-area">
+            <p class="label-linha">Módulos e Processos</p>
+            <h2 class="titulo-secao">Auditoria MIT</h2>
+            
+            <p>Esta é uma página placeholder para Auditoria MIT. Processos de auditoria, conformidade e qualidade aplicados ao MIT serão adicionados aqui.</p>
+        </section>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h2 id="modalTitle">Título</h2>
+            </div>
+            <div class="modal-body"><p id="modalDescription"></p></div>
+            <div class="modal-footer"><button class="btn-close-footer" onclick="fecharModal()">Fechar</button></div>
+        </div>
+    </div>
+
+    <!--
+    <div class="assistente-container">
+        <div class="balao-chat" id="chatBubble">
+            <span class="fechar-balao" onclick="fecharBalaoChat(event)">&minus;</span>
+            <p onclick="toggleChat()">Olá, para mais perguntas, clique aqui e pergunte ao nosso <strong>assistente virtual!</strong></p>
+        </div>
+        <div class="icone-assistente" id="iconeGemini" onclick="toggleChat()">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 3L4.5 7.5V16.5L12 21L19.5 16.5V7.5L12 3Z" stroke="white" stroke-width="1.5"/>
+                <circle cx="12" cy="12" r="3" stroke="white" stroke-width="1.5"/>
+                <path d="M12 7V9M12 15V17M7 12H9M15 12H17" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+    </div>
+
+    <div id="janelaChat" class="chat-window">
+        <div class="chat-header">
+            <div class="header-info"><span class="status-dot"></span><span>Assistente Virtual</span></div>
+            <button class="btn-close-chat" onclick="toggleChat()">&times;</button>
+        </div>
+        <div class="chat-content" id="chatContent">
+            <div class="msg-bot">Olá! Como posso ajudar você a navegar pelo nosso catálogo de serviços hoje?</div>
+        </div>
+        <div class="chat-footer">
+            <input type="text" id="chatInput" placeholder="Digite sua dúvida...">
+            <button onclick="enviarMensagemChat()"><i class="fa-solid fa-paper-plane"></i></button>
+        </div>
+    </div>
+    -->
+
+    <footer class="footer">
+        <img src="https://tdn.totvs.com/download/attachments/1032134307/logo-totvs-branco%20%281%29.webp?api=v2" alt="TOTVS Logo" class="logo-footer">
+        <p>&copy; 2026 Portal de Serviços Corporativos. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

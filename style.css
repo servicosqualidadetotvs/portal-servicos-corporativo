@@ -1,0 +1,143 @@
+:root {
+    --primary-blue: #002d5b;
+    --orange-accent: #f39c12;
+    --bg-light: #f4f7f9;
+    --white: #ffffff;
+    --text-main: #333333;
+    --bg-dark: #1a1a1a;
+    --text-dark: #e0e0e0;
+    --card-bg-dark: #2a2a2a;
+    --border-dark: #444444;
+}
+
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background-color: var(--white);
+    color: var(--text-main);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark {
+    background-color: var(--bg-dark);
+    color: var(--text-dark);
+}
+
+/* Hero Section Atualizada para Vídeo e Alinhamento à Esquerda */
+.hero {
+    position: relative; 
+    height: 380px;
+    display: flex; 
+    align-items: center; 
+    justify-content: flex-start; /* Alinhado à esquerda */
+    text-align: left; /* Texto à esquerda */
+    padding: 0 10%; /* Espaço lateral para não grudar na tela */
+    color: white;
+    overflow: hidden; 
+    background-color: var(--primary-blue); 
+}
+
+.hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: 1; 
+}
+
+.overlay { 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0, 0, 0, 0.6); 
+    z-index: 2; 
+}
+
+.hero-content { 
+    position: relative; 
+    z-index: 3;
+    max-width: 600px; /* Limita a largura para manter a leitura agradável */
+}
+
+.hero h1 { font-size: 48px; margin: 10px 0; }
+.hero h1 span { color: var(--white); } /* 2026 agora é branco */
+.btn-info { background: #000; color: white; border: 1px solid #ffffff44; padding: 10px 25px; border-radius: 20px; cursor: pointer; margin-top: 10px;}
+.btn-theme { background: transparent; color: white; border: 1px solid #ffffff44; padding: 10px 15px; border-radius: 20px; cursor: pointer; margin-top: 10px; margin-left: 10px; transition: all 0.3s;}
+.btn-theme:hover { background: rgba(255,255,255,0.1); }
+
+/* Main Content */
+.container { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+.label-linha { font-size: 12px; font-weight: bold; color: #888; text-transform: uppercase; }
+.titulo-secao { font-size: 32px; color: var(--primary-blue); margin-bottom: 40px; }
+
+.grid-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; }
+.card { background: white; padding: 30px; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.05); cursor: pointer; border: 1px solid #eee; transition: 0.3s; }
+body.dark .card { background: var(--card-bg-dark); border: 1px solid var(--border-dark); color: var(--text-dark); }
+body.dark .titulo-secao { color: white; }
+body.dark .icon-blue { color: white; }
+body.dark .modal-header { color: white; }
+.card:hover { transform: translateY(-5px); }
+.icon-blue { color: var(--primary-blue); font-size: 26px; margin-bottom: 20px; display: block; }
+
+/* Modais */
+.modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9998; backdrop-filter: blur(4px); align-items: center; justify-content: center; }
+.modal-card { background: white; width: 90%; max-width: 500px; padding: 30px; border-radius: 12px; position: relative; }
+body.dark .modal-card { background: var(--card-bg-dark); color: var(--text-dark); }
+.modal-header { display: flex; align-items: center; gap: 10px; color: var(--primary-blue); margin-bottom: 15px; }
+.close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #888; }
+.btn-close-footer { background: var(--primary-blue); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 20px; }
+
+/* Assistente Flutuante */
+.assistente-container { position: fixed; bottom: 30px; right: 30px; display: flex; align-items: center; gap: 15px; z-index: 9999; }
+.balao-chat { position: relative; background: white; padding: 15px 30px 15px 15px; border-radius: 12px; border: 1px solid #e0e0e0; box-shadow: 0 4px 15px rgba(0,0,0,0.1); max-width: 300px; cursor: pointer; }
+.balao-chat::after { content: ''; position: absolute; right: -8px; top: 50%; transform: translateY(-50%); border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-left: 8px solid white; }
+.balao-chat p { margin: 0; font-size: 14px; }
+
+/* Botão de retrair balão */
+.fechar-balao {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 18px;
+    color: #999;
+    cursor: pointer;
+    line-height: 1;
+    transition: 0.2s;
+}
+.fechar-balao:hover { color: #333; }
+
+.icone-assistente { 
+    width: 55px; height: 55px; 
+    background: linear-gradient(135deg, #4f5bd5, #962fbf, #fa7e1e); 
+    border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2); transition: 0.3s;
+}
+
+.chat-window { 
+    position: fixed; bottom: 100px; right: 30px; width: 350px; height: 500px; 
+    background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); 
+    display: none; flex-direction: column; z-index: 10000; animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+.chat-header { background: var(--primary-blue); color: white; padding: 15px; display: flex; justify-content: space-between; align-items: center; border-radius: 16px 16px 0 0; }
+.status-dot { display: inline-block; width: 8px; height: 8px; background: #4caf50; border-radius: 50%; margin-right: 8px; }
+.btn-close-chat { background: none; border: none; color: white; font-size: 20px; cursor: pointer; }
+.chat-content { flex: 1; padding: 20px; background: #f8f9fa; overflow-y: auto; }
+.chat-footer { padding: 15px; border-top: 1px solid #eee; display: flex; gap: 10px; }
+.chat-footer input { flex: 1; padding: 10px; border: 1px solid #ddd; border-radius: 8px; outline: none; }
+.chat-footer button { background: var(--primary-blue); color: white; border: none; padding: 10px 15px; border-radius: 8px; cursor: pointer; }
+
+.msg-bot { background: white; padding: 10px; border-radius: 10px; margin-bottom: 10px; font-size: 14px; align-self: flex-start; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+.msg-user { background: #e1f5fe; padding: 10px; border-radius: 10px; margin-bottom: 10px; font-size: 14px; align-self: flex-end; margin-left: auto; text-align: right; }
+
+/* Footer */
+.footer { background: var(--primary-blue); color: white; padding: 20px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
+.footer p { margin: 0; font-size: 14px; }
+.logo-header { width: 150px; height: auto; margin-bottom: 10px; }
+.logo-footer { width: 100px; height: auto; margin-bottom: 10px; }
