@@ -212,7 +212,8 @@ body.dark .section-area li::before {
 .hero h1 { font-size: 48px; margin: 16px 0 8px; line-height: 1.05; font-weight: 700; letter-spacing: -0.03em; }
 .hero h1 span { color: var(--white); }
 .hero p { font-size: 16px; margin: 0; color: rgba(255,255,255,0.9); font-weight: 500; letter-spacing: 0.02em; }
-.btn-info { background: #000; color: white; border: 1px solid #ffffff44; padding: 12px 26px; border-radius: 22px; cursor: pointer; margin-top: 18px; font-weight: 600; }
+.btn-info { background: transparent; color: white; border: 1px solid #ffffff44; padding: 12px 26px; border-radius: 22px; cursor: pointer; margin-top: 18px; font-weight: 600; transition: all 0.3s; }
+.btn-info:hover { background: rgba(255,255,255,0.12); }
 .btn-theme { background: transparent; color: white; border: 1px solid #ffffff44; padding: 12px 18px; border-radius: 22px; cursor: pointer; margin-top: 18px; margin-left: 12px; transition: all 0.3s; }
 .btn-theme:hover { background: rgba(255,255,255,0.12); }
 
