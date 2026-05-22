@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -27,140 +27,162 @@
         <section class="section-area">
             <p class="label-linha">Módulos e Processos</p>
             <h2 class="titulo-secao">PACK PMO</h2>
-            
+
             <div class="guide-section">
-            <h3>Pré-requisitos</h3>
-            <p><strong>Público-alvo:</strong> Este guia é destinado ao Coordenador de Projetos, responsável pela implantação de projetos da TOTVS. Partes específicas (como o cadastro de atividades e movimentação no Kanban) também se aplicam a analistas e membros da equipe com acesso à planilha.</p>
-            
-            <p><strong>Pré-requisitos técnicos:</strong> Antes de iniciar a configuração, confirme que os itens abaixo estão atendidos:</p>
-            <ul>
-                <li><strong>Conta e acesso:</strong> Conta Google Workspace</li>
-            </ul>
+                <h3>0. Antes de Começar</h3>
 
-            <p><strong>Informações necessárias antes de começar:</strong></p>
-            <ul>
-                <li>Nome do projeto e do cliente</li>
-                <li>Lista de stakeholders e seus e-mails corporativos</li>
-                <li>Estrutura do projeto: frentes, macro etapas, etapas e subetapas</li>
-                <li>Logotipo do cliente (arquivo de imagem)</li>
-                <li>Número de WhatsApp do ponto focal</li>
-                <li>Lista de feriados do período do projeto</li>
-                <li>Lista de entregáveis faturáveis (ex: RTM1, RTM2)</li>
-            </ul>
+                <h4>0.1. O que é o Pack PMO</h4>
+                <p>O Pack PMO é uma solução de gestão desenvolvida em Google Sheets e AppScript para padronizar o fluxo de backlog, atividades e Kanban.</p>
+                <p>Ele automatiza relatórios (Status Report e dashboards) e comunicação por e-mail, permitindo que a equipe trabalhe com menos tarefas manuais e maior visibilidade.</p>
 
-            <p><strong>Visão geral da arquitetura (Backlog → Atividades → Kanban):</strong> O PACK PMO é uma solução integrada de gestão desenvolvida em Google Sheets e AppScript. Seu foco reside na automação do fluxo entre o backlog e as demandas ativas, visando a padronização rigorosa da gestão e a otimização da produtividade da equipe.</p>
+                <h4>0.2. Público-alvo</h4>
+                <p>Este guia foi criado para o Coordenador de Projetos responsável pela implantação de projetos TOTVS.</p>
+                <p>Analistas e membros da equipe com acesso à planilha também devem acompanhar as etapas de cadastro de atividades e movimentação no Kanban.</p>
 
-            <blockquote>
-                <p><strong>ℹ️ Aviso:</strong> O acesso à planilha, painel e Kanban é restrito à equipe interna. O cliente acompanhará a evolução do projeto exclusivamente via e-mails e relatórios automatizados.</p>
-            </blockquote>
+                <h4>0.3. Pré-requisitos Técnicos</h4>
+                <p>Antes de iniciar a implantação, garanta que os itens abaixo estejam disponíveis:</p>
+                <ul>
+                    <li>Conta Google Workspace</li>
+                </ul>
+                <p>Tenha à mão:</p>
+                <ul>
+                    <li>Nome do projeto e do cliente</li>
+                    <li>Lista de stakeholders e e-mails corporativos</li>
+                    <li>Estrutura do projeto: frentes, macroetapas, etapas e subetapas</li>
+                    <li>Logotipo do cliente</li>
+                    <li>Número de WhatsApp do ponto focal</li>
+                    <li>Lista de feriados do período</li>
+                    <li>Lista de entregáveis faturáveis (ex.: RTM1, RTM2)</li>
+                </ul>
+
+                <h4>0.4. Visão Geral da Arquitetura</h4>
+                <p>O Pack PMO integra a gestão entre Backlog, Atividades e Kanban para criar um fluxo automatizado e consistente.</p>
+                <p>O foco está na padronização dos processos e na eficiência operacional da equipe.</p>
+
+                <blockquote>
+                    <p><strong>⚠️ Aviso:</strong> O acesso à planilha, painel e Kanban é restrito à equipe interna. O cliente acompanha o projeto apenas por e-mails e relatórios automatizados.</p>
+                </blockquote>
             </div>
 
             <div class="guide-section">
-            <h3>1. Introdução</h3>
-            <p>O PACK PMO é uma ferramenta de gestão de projetos desenvolvida em Google Sheets e AppScript, focada em automação de backlog e demandas para padronizar a gestão e otimizar o tempo da equipe. A ferramenta permite a geração automatizada de relatórios (Status Report e dashboards) e automatiza a comunicação via e-mail (envio de checkpoint e notificação de atividades).</p>
+                <h3>1. Introdução</h3>
+                <p>O Pack PMO permite automação de backlog e demandas para padronizar a gestão e otimizar o tempo da equipe.</p>
+                <p>A solução inclui geração de relatórios, dashboards e envio automático de checkpoints por e-mail.</p>
 
-            <h4>1.1. Propósito e Estrutura</h4>
-            <ul>
-                <li><strong>Otimização de Tempo:</strong> Automação de tarefas rotineiras e fluxos de aprovação.</li>
-                <li><strong>Centralização e Padronização:</strong> Unifica as informações do projeto e padroniza a gestão entre diferentes unidades.</li>
-                <li><strong>Gestão Visual (Kanban):</strong> Visualização dinâmica de atividades via Painel de Gestão e Kanban.</li>
-                <li><strong>Relatórios e Comunicação:</strong> Dashboards integrados e envio automatizado de checkpoints por e-mail.</li>
-            </ul>
+                <h4>1.1. Propósito e Estrutura</h4>
+                <ul>
+                    <li><strong>Otimização de Tempo:</strong> automatização de tarefas rotineiras.</li>
+                    <li><strong>Centralização:</strong> unificação das informações do projeto.</li>
+                    <li><strong>Gestão Visual:</strong> painéis e Kanban para acompanhamento.</li>
+                    <li><strong>Relatórios:</strong> envio automático de status report e checkpoints.</li>
+                </ul>
             </div>
 
             <div class="guide-section">
-            <h3>2. Configuração Inicial</h3>
-            <p>A configuração inicial é um procedimento executado uma única vez durante a implantação da ferramenta. É imperativo seguir a sequência abaixo na ordem indicada; a omissão ou alteração de etapas comprometerá a integridade funcional do Pack PMO.</p>
+                <h3>2. Configuração Inicial</h3>
+                <p>Execute estas etapas na ordem indicada. A alteração da sequência pode comprometer a funcionalidade do Pack PMO.</p>
 
-            <h4>2.1. Cópia e permissões</h4>
-            <p>A) Acesse o arquivo matriz do Pack PMO e gere uma cópia em seu Google Drive: <a href ="https://docs.google.com/spreadsheets/d/1nEHj6e__3todi0N-K505slyMWHB-lmrOX8oifqqquAM/copy?gid=2121301974#gid=2121301974">Clique aqui para realizar a cópia.</a><br>
-            B) Renomeie o arquivo conforme a nomenclatura padrão do seu projeto ou cliente.<br>
-            C) Na primeira abertura, caso o sistema exiba uma barra amarela de alerta sobre funções ou scripts, clique em <strong>Permitir Acesso</strong> e aceite as condições de funcionamento.</p>
+                <h4>2.1. Cópia e Permissões</h4>
+                <p>Faça uma cópia do arquivo matriz no Google Drive e renomeie conforme seu projeto.</p>
+                <p>Ao abrir pela primeira vez, aceite os alertas do Google para permitir o funcionamento dos scripts.</p>
+                <p><a href="https://docs.google.com/spreadsheets/d/1nEHj6e__3todi0N-K505slyMWHB-lmrOX8oifqqquAM/copy?gid=2121301974#gid=2121301974" target="_blank">Clique aqui para realizar a cópia</a>.</p>
 
-            <h4>2.2. Ativação de acionadores</h4>
-            <p>Navegue pelo menu superior: <strong>Automação PMO > Configuração > Ativar/Atualizar Acionador</strong>. Uma interface de autorização do Google será exibida. É necessário conceder todas as permissões solicitadas para que o script execute o envio de e-mails e a gestão da planilha em seu nome de forma automatizada.</p>
+                <h4>2.2. Ativação dos Acionadores</h4>
+                <p>Acesse <strong>Automação PMO &gt; Configuração &gt; Ativar/Atualizar Acionador</strong>.</p>
+                <p>Conceda todas as permissões solicitadas para permitir o envio de e-mails e a execução dos scripts.</p>
 
-            <h4>2.3. Implantação do Painel</h4>
-            <ul>
-                <li>Acesse <strong>Extensões > App Script</strong>.</li>
-                <li>No editor de scripts, selecione o botão azul <strong>Implantar > Nova Implantação</strong>.</li>
-                <li>Defina o tipo de implantação como <strong>App da Web</strong>.</li>
-                <li>Em "Quem pode acessar", configure para <strong>"Qualquer pessoa"</strong> (ou conforme as restrições da sua organização) e clique em Implantar.</li>
-                <li>Copie integralmente a URL gerada (URL do App da Web).</li>
-                <li>Retorne à planilha e navegue até o menu <strong>Configuração PMO > Configuração > Guia: Primeira Implantação</strong>.</li>
-                <li>Insira a URL copiada no campo "Cole a URL copiada aqui".</li>
-            </ul>
-
-            <p><strong>⚠️ Atenção:</strong> Não realize alterações em nenhum outro campo deste formulário.</p>
+                <h4>2.3. Implantação do Painel de Gestão</h4>
+                <ol>
+                    <li>Acesse <strong>Extensões &gt; App Script</strong>.</li>
+                    <li>Selecione <strong>Implantar &gt; Nova Implantação</strong>.</li>
+                    <li>Escolha <strong>App da Web</strong> como tipo de implantação.</li>
+                    <li>Defina o acesso como <strong>Qualquer pessoa</strong> ou de acordo com a política da organização.</li>
+                    <li>Copie a URL do App da Web.</li>
+                    <li>Retorne à planilha e abra <strong>Automação PMO &gt; Configuração &gt; Guia: Primeira Implantação</strong>.</li>
+                    <li>Cole a URL no campo indicado.</li>
+                </ol>
+                <p><strong>⚠️ Atenção:</strong> não altere outros campos do formulário.</p>
             </div>
 
             <div class="guide-section">
-            <h3>3. Configurações do Projeto</h3>
-            <p><strong>✓ 3.1. Informações gerais do projeto</strong><br>
-            Personalize o bloco "Informações do Projeto". O nome definido afetará diretamente o assunto dos e-mails automatizados. Configure os parâmetros: "Sprint/Onda", "Assunto do e-mail de checkpoint", "Dia da semana de status report" e "Previsão de Go-live". Adicione o Logotipo do Cliente e o número de WhatsApp dele para integração.</p>
+                <h3>3. Configurações do Projeto</h3>
+                <p>Preencha os dados básicos na aba <strong>Configurações</strong> antes de usar o Kanban.</p>
 
-            <p><strong>✓ 3.2. Equipe e estrutura</strong><br>
-            Defina a composição da "Equipe" (TOTVS, Cliente, Terceiros), as "Frentes do projeto", "Macroetapas", "Etapas" e "Subetapas". A classificação "Governança" destina-se a atividades de acompanhamento interno que não devem ser expostas no status report do cliente.</p>
+                <h4>3.1. Informações Gerais</h4>
+                <p>Configure o nome do projeto, assunto de e-mail, dia do status report, previsão de go-live, logotipo e número de WhatsApp.</p>
 
-            <p><strong>✓ 3.3. Configuração de e-mail</strong><br>
-            Cadastre os stakeholders e seus respectivos endereços eletrônicos. As "flags" (sinalizadores) habilitam o recebimento de e-mails de atividade, servindo como uma trava de segurança para o controle de envios. <strong>Alerta:</strong> O checkbox de notificação de atividade atribuída pode disparar e-mails retroativos sobre tarefas já concluídas durante a alimentação inicial da planilha. Recomenda-se sua ativação apenas em cenários de necessidade estrita.</p>
+                <h4>3.2. Equipe e Estrutura</h4>
+                <p>Cadastre a equipe (TOTVS, Cliente, Terceiros), frentes, macroetapas, etapas e subetapas.</p>
+                <p>A classificação <strong>Governança</strong> é para atividades internas que não entram no status report do cliente.</p>
 
-            <p><strong>✓ 3.4. Financeiro e calendário</strong><br>
-            Relacione os entregáveis faturáveis (exemplo: RTM1, RTM2) e cadastre os feriados locais/nacionais para que o motor de cálculo de dias úteis os desconsidere automaticamente.</p>
+                <h4>3.3. Configuração de E-mail</h4>
+                <p>Cadastre os stakeholders e habilite as flags de notificação de atividade conforme necessidade.</p>
+                <p><strong>Alerta:</strong> a notificação de atividade atribuída pode gerar e-mails retroativos durante a alimentação inicial.</p>
+
+                <h4>3.4. Financeiro e Calendário</h4>
+                <p>Registre os entregáveis faturáveis e insira os feriados para o cálculo de dias úteis.</p>
             </div>
 
             <div class="guide-section">
-            <h3>4. Fluxo de Trabalho Diário</h3>
-            <h4>4.1. Acessando o Painel de Gestão</h4>
-            <p>Na interface da planilha, utilize o menu <strong>Automação PMO > Atividades PMO > Painel de Gestão</strong> e clique em "Acessar Painel". Esta visualização apresenta os indicadores de saúde do projeto. Para a gestão visual, selecione o botão "Ver Kanban".</p>
+                <h3>4. Fluxo de Trabalho Diário</h3>
 
-            <h4>4.2. Registrando uma Atividade no Backlog</h4>
-            <p>Na interface do Kanban, é possível criar novos cards preenchendo o formulário no menu "Adicionar ao Backlog" e clicando em "Enviar para Backlog". A atividade será inserida na aba homônima da planilha. Alternativamente, o preenchimento pode ser feito diretamente em uma nova linha na aba Backlog.</p>
+                <h4>4.1. Acessando o Painel</h4>
+                <p>Use <strong>Automação PMO &gt; Atividades PMO &gt; Painel de Gestão</strong> e clique em "Acessar Painel".</p>
+                <p>No painel, use o botão "Ver Kanban" para acompanhar visualmente as atividades.</p>
 
-            <h4>4.3. Priorização e Movimentação para Execução</h4>
-            <ol>
-                <li>Acesse a aba <strong>Backlog</strong> na planilha.</li>
-                <li>Marque o checkbox da coluna <strong>"Priorizar"</strong> nas tarefas destinadas ao início imediato.</li>
-                <li>Navegue até <strong>Automação PMO > Atividades PMO > Cadastrar novas tasks</strong>.</li>
-            </ol>
-            <p>Este procedimento remove a "trava" do Backlog e transfere a atividade para a aba principal, habilitando sua visibilidade e edição no quadro Kanban.</p>
+                <h4>4.2. Registrando uma Atividade</h4>
+                <p>Adicione tarefas pelo formulário <strong>Adicionar ao Backlog</strong> ou registre diretamente na aba <strong>Backlog</strong>.</p>
 
-            <h4>4.4. Gerenciamento de Status no Kanban</h4>
-            <p>No quadro Kanban, as atividades podem ser movidas entre as colunas: Não Iniciado, Em Andamento e Concluído. Recomenda-se o uso dos filtros de topo para segmentar a visão por frentes, responsáveis ou cronogramas específicos.</p>
+                <h4>4.3. Priorização e Execução</h4>
+                <ol>
+                    <li>Marque o checkbox <strong>Priorizar</strong> no Backlog.</li>
+                    <li>Vá em <strong>Automação PMO &gt; Atividades PMO &gt; Cadastrar novas tasks</strong>.</li>
+                </ol>
+                <p>Isso libera a atividade para edição e exibição no Kanban.</p>
+
+                <h4>4.4. Gerenciamento no Kanban</h4>
+                <p>Movimente tarefas entre <strong>Não Iniciado</strong>, <strong>Em Andamento</strong> e <strong>Concluído</strong>.</p>
+                <p>Use filtros por frente, responsável e cronograma para segmentar a visão.</p>
             </div>
 
             <div class="guide-section">
-            <h3>5. Comunicação Automatizada</h3>
-            <p>O ecossistema do Pack PMO automatiza o envio de relatórios e notificações. Estes disparos estão divididos em três categorias principais, englobando o acompanhamento individual de tarefas e reports automatizados com distintos níveis de granularidade (operacional e estratégico).</p>
+                <h3>5. Comunicação Automatizada</h3>
+                <p>O Pack PMO automatiza relatórios e notificações em diferentes níveis de detalhamento.</p>
 
-            <h4>5.1. E-mail de atividade</h4>
-            <p>Notificação automática de tarefas atribuídas. Para configurar:</p>
-            <ul>
-                <li>Acesse a aba de configurações.</li>
-                <li>Valide se os responsáveis possuem e-mails cadastrados no bloco de stakeholders.</li>
-                <li>Habilite as flags pertinentes no bloco de notificações via e-mail.</li>
-            </ul>
-            <p>A partir da ativação, qualquer atribuição ou movimentação disparará um aviso ao responsável.</p>
+                <h4>5.1. E-mail de Atividade</h4>
+                <p>Habilite o envio automático de notificações para responsáveis de tarefas atribuídas.</p>
+                <ul>
+                    <li>Verifique os e-mails dos stakeholders.</li>
+                    <li>Ative as flags de notificação.</li>
+                </ul>
 
-            <h4>5.2. E-mail de report completo e executivo</h4>
-            <p>Envio estruturado de checkpoints e status report. O modelo "Executivo" é otimizado para indicadores e síntese de resultados, enquanto o "Completo" oferece o detalhamento operacional.</p>
-            <p>Procedimento de configuração:</p>
-            <ol>
-                <li>Cadastre os destinatários na aba <strong>Configurações > Informações Projeto > Lista_Emails</strong> (utilize vírgulas como separador).</li>
-                <li>Preencha os campos de assunto, remetente e periodicidade.</li>
-                <li>Prepare o envio em <strong>Automação PMO > Atividades PMO > Preparar Envio</strong> e clique em enviar.</li>
-                <li>Para o relatório executivo, utilize <strong>Automação PMO > Atividades PMO > Enviar Status Executivo</strong>.</li>
-            </ol>
+                <h4>5.2. E-mail de Report Completo e Executivo</h4>
+                <p>O Pack PMO envia relatórios completos e executivos com diferentes níveis de síntese.</p>
+                <ol>
+                    <li>Cadastre destinatários em <strong>Configurações &gt; Informações Projeto &gt; Lista_Emails</strong>.</li>
+                    <li>Preencha assunto, remetente e periodicidade.</li>
+                    <li>Em <strong>Automação PMO &gt; Atividades PMO &gt; Preparar Envio</strong>, clique em <strong>Enviar</strong>.</li>
+                    <li>Use <strong>Automação PMO &gt; Atividades PMO &gt; Enviar Status Executivo</strong> para o relatório executivo.</li>
+                </ol>
             </div>
 
             <div class="guide-section">
-            <h3>6. FAQ</h3>
-            <p>Resolução de inconsistências operacionais:</p>
-            <ul>
-                <li><strong>Sincronização:</strong> Caso as atualizações da planilha não reflitam no Painel ou Kanban, execute o comando <strong>CTRL + F5</strong> para limpar o cache do navegador e forçar o recarregamento.</li>
-                <li><strong>Suporte:</strong> Para suporte técnico e dúvidas avançadas, contate <strong>servicos.qualidade@totvs.com.br</strong>.</li>
-            </ul>
+                <h3>6. Vídeo</h3>
+                <p>Assista ao vídeo de apresentação do Pack PMO para entender a implantação e o uso da ferramenta.</p>
+                <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; margin-top: 20px;">
+                    <iframe src="https://drive.google.com/file/d/1NNBFUVFx5vUZpBSL6XL5eXdd0QBoLrHI/preview" allow="autoplay" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;"></iframe>
+                </div>
             </div>
+
+            <div class="guide-section">
+                <h3>7. Suporte e Solução de Problemas</h3>
+                <ul>
+                    <li><strong>Tutor Pack PMO:</strong> Utilize o GEM de suporte técnico e consultoria específica para o Pack PMO. <a href="https://gemini.google.com/gem/1YF0ODQHS_c4m42CAHFJJOeFSp-rqBsAb?usp=sharing" target="_blank">Clique aqui para acessar</a>.</li>
+                    <li><strong>Sincronização:</strong> Se as atualizações não aparecem no Painel ou Kanban, pressione <strong>CTRL + F5</strong> para limpar o cache.</li>
+                    <li><strong>Suporte:</strong> Contate <strong>servicos.customerexperience@totvs.com.br</strong> para dúvidas avançadas.</li>
+                </ul>
+            </div>
+
         </section>
     </div>
 
