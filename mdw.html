@@ -55,7 +55,7 @@
             font-style: italic;
         }
 
-        /* Estilo para a seção interativa de Estratégia do Produto e Conceitos */
+        /* Estilo para a seção interativa de Estratégia do Produto e Conceitos (com emojis) */
         .strategy-section {
             margin: 30px 0;
             background-color: #ffffff;
@@ -96,6 +96,49 @@
             padding-left: 20px;
             line-height: 1.5;
         }
+
+        /* Estilo para a seção interativa de Resumo das Páginas (sem emojis) */
+        .pages-accordion {
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        .pages-accordion details {
+            background-color: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            padding: 15px;
+            transition: all 0.2s ease;
+        }
+        .pages-accordion details:hover {
+            border-color: #b3d7ff;
+            background-color: #ffffff;
+        }
+        .pages-accordion summary {
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            outline: none;
+            color: #2c3e50;
+        }
+        .pages-accordion details[open] summary {
+            margin-bottom: 15px;
+            border-bottom: 1px solid #eaeaea;
+            padding-bottom: 10px;
+        }
+        .pages-accordion details p {
+            margin-top: 0;
+            margin-bottom: 10px;
+            color: #444;
+        }
+        .pages-accordion details ul {
+            margin: 0;
+            padding-left: 20px;
+            color: #444;
+        }
+        .pages-accordion details ul li {
+            margin-bottom: 8px;
+        }
     </style>
 </head>
 <body>
@@ -130,7 +173,8 @@
                     </details>
                     <details>
                         <summary>O QUE NÃO É?</summary>
-                        <p>Sistema de gestão de projetos com regras de negócio específicas, nem gerador de documentos digitais da metodologia.</p>
+                        <p>Sistema de gestão de projetos com regras de negócio específicas.<br>
+                        Gerador de documentos digitais da metodologia.</p>
                     </details>
                 </div>
             </div>
@@ -156,39 +200,47 @@
                     </details>
                 </div>
             </div>
-            
+
             <h3>Resumo das principais páginas e suas funcionalidades:</h3>
 
-            <h4>Homepage (Página Inicial)</h4>
-            <p>É o seu ponto de partida para uma visão consolidada do dia a dia.</p>
-            <ul>
-                <li><strong>Central de Ajuda:</strong> Localizada no canto superior direito, oferece orientações de uso, novidades do produto e acesso à Universidade TOTVS.</li>
-                <li><strong>Menu de Acessos Rápidos:</strong> Atalhos para ferramentas como TOTVS Collab (gestão de tarefas), Reserve (despesas), Busca no Drive e Aceleradores de Implantação.</li>
-                <li><strong>Widget Meus Projetos:</strong> Lista todos os projetos onde você está atrelado no PSA, permitindo buscas e filtragem por favoritos.</li>
-                <li><strong>Calendário de Serviços:</strong> Exibe eventos importantes (fechamentos, auditorias) e sua agenda de alocação vinda do PSA.</li>
-                <li><strong>Apontamento de Horas:</strong> Widget para envio de horas pendentes (status rascunho) diretamente para o PSA.</li>
-                <li><strong>Aprovações:</strong> Lista pendências de aprovação associadas ao seu usuário.</li>
-            </ul>
+            <div class="pages-accordion">
+                <details>
+                    <summary>Homepage (Página Inicial)</summary>
+                    <p>É o seu ponto de partida para uma visão consolidada do dia a dia.</p>
+                    <ul>
+                        <li><strong>Central de Ajuda:</strong> Localizada no canto superior direito, oferece orientações de uso, novidades do produto e acesso à Universidade TOTVS.</li>
+                        <li><strong>Menu de Acessos Rápidos:</strong> Atalhos para ferramentas como TOTVS Collab (gestão de tarefas), Reserve (despesas), Busca no Drive e Aceleradores de Implantação.</li>
+                        <li><strong>Widget Meus Projetos:</strong> Lista todos os projetos onde você está atrelado no PSA, permitindo buscas e filtragem por favoritos.</li>
+                        <li><strong>Calendário de Serviços:</strong> Exibe eventos importantes (fechamentos, auditorias) e sua agenda de alocação vinda do PSA.</li>
+                        <li><strong>Apontamento de Horas:</strong> Widget para envio de horas pendentes (status rascunho) diretamente para o PSA.</li>
+                        <li><strong>Aprovações:</strong> Lista pendências de aprovação associadas ao seu usuário.</li>
+                    </ul>
+                </details>
 
-            <h4>Workarea (Área de Trabalho do Projeto)</h4>
-            <p>Acessada ao clicar no nome de um projeto específico, reúne ferramentas para a execução e gestão da entrega.</p>
-            <ul>
-                <li><strong>Dashboard de Informações:</strong> Exibe dados cadastrais, tempo de vida, escopo (objetivos, premissas) e progresso físico do projeto.</li>
-                <li><strong>Riscos e Problemas:</strong> Permite registrar e monitorar ocorrências, alimentando uma Matriz de Risco que é vinculada ao Status Report.</li>
-                <li><strong>Marcos do Projeto:</strong> Visualização dos marcos de entrega definidos no PSA, com opções para anexar termos de aceite e enviar para aprovação.</li>
-                <li><strong>Indicadores de Gestão:</strong> Dashboards financeiros (valor vendido, margem, realizado) e de qualidade integrados ao GoodData Analytics.</li>
-                <li><strong>Assinatura Eletrônica:</strong> Upload e gestão de documentos para assinatura do cliente via integração com o TAE (TOTVS Assinatura Eletrônica).</li>
-                <li><strong>Status Report:</strong> Gera um relatório completo do status do projeto (financeiro, entregas, riscos) com apenas um clique para compartilhamento.</li>
-            </ul>
+                <details>
+                    <summary>Workarea (Área de Trabalho do Projeto)</summary>
+                    <p>Acessada ao clicar no nome de um projeto específico, reúne ferramentas para a execução e gestão da entrega.</p>
+                    <ul>
+                        <li><strong>Dashboard de Informações:</strong> Exibe dados cadastrais, tempo de vida, escopo (objetivos, premissas) e progresso físico do projeto.</li>
+                        <li><strong>Riscos e Problemas:</strong> Permite registrar e monitorar ocorrências, alimentando uma Matriz de Risco que é vinculada ao Status Report.</li>
+                        <li><strong>Marcos do Projeto:</strong> Visualização dos marcos de entrega definidos no PSA, com opções para anexar termos de aceite e enviar para aprovação.</li>
+                        <li><strong>Indicadores de Gestão:</strong> Dashboards financeiros (valor vendido, margem, realizado) e de qualidade integrados ao GoodData Analytics.</li>
+                        <li><strong>Assinatura Eletrônica:</strong> Upload e gestão de documentos para assinatura do cliente via integração com o TAE (TOTVS Assinatura Eletrônica).</li>
+                        <li><strong>Status Report:</strong> Gera um relatório completo do status do projeto (financeiro, entregas, riscos) com apenas um clique para compartilhamento.</li>
+                    </ul>
+                </details>
 
-            <h4>Central de Projetos (Visão do Cliente)</h4>
-            <p>Portal exclusivo para que o cliente tenha autonomia e visibilidade sobre seus projetos ativos.</p>
-            <ul>
-                <li><strong>Aprovações do Cliente:</strong> O cliente pode aprovar ou reprovar marcos de entrega ou atividades de banco de horas.</li>
-                <li><strong>Esclarecimento de Notas:</strong> Acesso ao detalhamento de faturas (Hora e Material) sem necessidade de abrir tickets.</li>
-                <li><strong>Ponto Focal:</strong> Permite que o cliente gerencie quem é o responsável por assinar documentos e responder pesquisas.</li>
-                <li><strong>Mensagens:</strong> Canal direto para envio de dúvidas ao responsável TOTVS, com integração bidirecional com o PSA.</li>
-            </ul>
+                <details>
+                    <summary>Central de Projetos (Visão do Cliente)</summary>
+                    <p>Portal exclusivo para que o cliente tenha autonomia e visibilidade sobre seus projetos ativos.</p>
+                    <ul>
+                        <li><strong>Aprovações do Cliente:</strong> O cliente pode aprovar ou reprovar marcos de entrega ou atividades de banco de horas.</li>
+                        <li><strong>Esclarecimento de Notas:</strong> Acesso ao detalhamento de faturas (Hora e Material) sem necessidade de abrir tickets.</li>
+                        <li><strong>Ponto Focal:</strong> Permite que o cliente gerencie quem é o responsável por assinar documentos e responder pesquisas.</li>
+                        <li><strong>Mensagens:</strong> Canal direto para envio de dúvidas ao responsável TOTVS, com integração bidirecional com o PSA.</li>
+                    </ul>
+                </details>
+            </div>
 
             <div class="link-cards-grid">
                 <a href="https://unit.edusense.app/#/player/3604?lesson_id=42688" class="link-card"><h4>Capacitação</h4></a>
