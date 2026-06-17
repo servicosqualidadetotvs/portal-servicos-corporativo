@@ -6,6 +6,97 @@
     <title>MDW - Portal de Serviços Corporativo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos adicionados para as sugestões do Igor */
+        .interactive-cards-container {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .click-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        .click-card:hover {
+            transform: translateY(-5px);
+            border-color: #007bff;
+        }
+        .click-card h3 {
+            margin-top: 0;
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        .click-card .card-content {
+            display: none;
+            margin-top: 15px;
+            color: #555;
+            text-align: left;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            border-top: 1px solid #ddd;
+            padding-top: 15px;
+        }
+        .click-card.active .card-content {
+            display: block;
+        }
+        .click-card-instruction {
+            font-size: 0.8rem;
+            color: #888;
+            font-style: italic;
+        }
+
+        /* Estilo para a seção interativa de Estratégia do Produto e Conceitos */
+        .strategy-section {
+            margin: 30px 0;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .strategy-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .strategy-accordion details {
+            background-color: #f1f3f5;
+            border-left: 4px solid #007bff;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            transition: all 0.2s ease;
+        }
+        .strategy-accordion details:hover {
+            background-color: #e9ecef;
+        }
+        .strategy-accordion summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+            list-style-type: '👉 ';
+        }
+        .strategy-accordion details[open] summary {
+            list-style-type: '👇 ';
+            margin-bottom: 10px;
+        }
+        .strategy-accordion details p {
+            margin: 0;
+            color: #444;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
 
@@ -28,8 +119,44 @@
             <p class="label-linha">Módulos e Processos</p>
             <h2 class="titulo-secao">MDW</h2>
             
-            <p>A MDW é um portal estratégico que conecta diversos processos e ferramentas utilizados no ciclo de vida da entrega de serviços TOTVS. Seu objetivo principal é promover uma interação 360° entre o time TOTVS, clientes e fornecedores, integrando sistemas na etapa de adoção da jornada do cliente.</p>
+            <p>A MDW é um portal estratégico que conecta diversos processos e ferramentas utilizados no ciclo de vida da entrega de serviços TOTVS.<br>
+            <strong>O Objetivo</strong> da ferramenta <strong>é</strong> Promover a <strong style="color: #3aa4f0;">INTERAÇÃO 360º</strong> <strong>entre times TOTVS, fornecedores e clientes através de uma plataforma que conecta processos e sistemas inseridos na etapa de adoção da jornada do cliente.</strong></p>
 
+            <div class="strategy-section">
+                <div class="strategy-accordion">
+                    <details>
+                        <summary>O QUE É?</summary>
+                        <p style="color: #3aa4f0;">Portal que conecta os diversos processos e ferramentas utilizados no ciclo de vida da entrega de serviços</p>
+                    </details>
+                    <details>
+                        <summary>O QUE NÃO É?</summary>
+                        <p>Sistema de gestão de projetos com regras de negócio específicas, nem gerador de documentos digitais da metodologia.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Estratégia do Produto</h3>
+                <div class="strategy-accordion">
+                    <details>
+                        <summary>Produtividade</summary>
+                        <p><strong style="color: #ffb800;">Convergência</strong> <strong>de ferramentas e processos envolvidos no ciclo de vida de serviços</strong></p>
+                    </details>
+                    <details>
+                        <summary>Interação</summary>
+                        <p><strong style="color: #3aa4f0;">Conectando clientes</strong> <strong>e fornecedores para realização de aprovações e acompanhamento do projeto</strong></p>
+                    </details>
+                    <details>
+                        <summary>Visibilidade</summary>
+                        <p><strong>Informações</strong> <strong style="color: #3aa4f0;">disponíveis</strong> <strong>para times TOTVS e também clientes</strong></p>
+                    </details>
+                    <details>
+                        <summary>Qualidade</summary>
+                        <p><strong>Repositório de</strong> <strong style="color: #9e9e9e;">boas práticas</strong><strong>, padronização e aceleradores</strong></p>
+                    </details>
+                </div>
+            </div>
+            
             <h3>Resumo das principais páginas e suas funcionalidades:</h3>
 
             <h4>Homepage (Página Inicial)</h4>
@@ -64,15 +191,15 @@
             </ul>
 
             <div class="link-cards-grid">
-                <a href="#" class="link-card"><h4>Capacitação</h4></a>
-                <a href="#" class="link-card"><h4>Painel Capacitação</h4></a>
-                <a href="#" class="link-card"><h4>MDW Interna</h4></a>
-                <a href="#" class="link-card"><h4>MDW Cliente</h4></a>
-                <a href="#" class="link-card"><h4>MDW Terceiros</h4></a>
-                <a href="#" class="link-card"><h4>Guia de Ajuda</h4></a>
-                <a href="#" class="link-card"><h4>Releases</h4></a>
+                <a href="https://unit.edusense.app/#/player/3604?lesson_id=42688" class="link-card"><h4>Capacitação</h4></a>
+                <a href="https://datastudio.google.com/reporting/a05ba967-fe6c-4a1d-b2e1-bfb477e45043" class="link-card"><h4>Painel Capacitação</h4></a>
+                <a href="https://fluig.totvs.com/portal/p/10097/mitdigitalworkplace" class="link-card"><h4>MDW Interna</h4></a>
+                <a href="https://fluig.totvs.com/portal/p/10097/mitvisaocliente/" class="link-card"><h4>MDW Cliente</h4></a>
+                <a href="https://fluig.totvs.com/portal/p/10097/apontamentoterceiros" class="link-card"><h4>MDW Terceiros</h4></a>
+                <a href="https://tdn.totvs.com/pages/viewpage.action?spaceKey=SRVCORP&title=Central+de+Ajuda+-+MDW" class="link-card"><h4>Guia de Ajuda</h4></a>
+                <a href="https://tdn.totvs.com/display/SRVCORP/Release+Notes+e+Roadmap" class="link-card"><h4>Releases</h4></a>
                 <a href="https://gemini.google.com/gem/1rwR_AXiv_ZCurgH3GXX1CuuP2e8tNI_R?usp=sharing" class="link-card"><h4>GEM</h4></a>
-                <a href="#" class="link-card"><h4>FAQ</h4></a>
+                <a href="https://tdn.totvs.com/pages/viewpage.action?pageId=910006892" class="link-card"><h4>FAQ</h4></a>
             </div>
 
             <blockquote>
