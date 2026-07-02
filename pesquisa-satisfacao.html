@@ -6,6 +6,57 @@
     <title>Pesquisa de Satisfação de Serviços - Portal de Serviços Corporativo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para seções com acordeão */
+        .nps-section {
+            margin: 30px 0;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .nps-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .nps-accordion details {
+            background-color: #f1f3f5;
+            border-left: 4px solid #3aa4f0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            transition: all 0.2s ease;
+        }
+        .nps-accordion details:hover {
+            background-color: #e9ecef;
+        }
+        .nps-accordion summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+            list-style-type: '👉 ';
+        }
+        .nps-accordion details[open] summary {
+            list-style-type: '👇 ';
+            margin-bottom: 10px;
+        }
+        .nps-accordion details p {
+            margin: 0;
+            color: #444;
+            padding-left: 20px;
+            line-height: 1.5;
+        }
+        .nps-accordion details ul {
+            margin: 0;
+            padding-left: 40px;
+            color: #444;
+        }
+        .nps-accordion details ul li {
+            margin-bottom: 8px;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,6 +65,9 @@
             <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-header">
             <p>Portal de Gestão e Serviços</p>
             <h1>Serviços Corporativo <span>2026</span></h1>
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Voltar para a página inicial">
+                <i class="fa-solid fa-house"></i> Início
+            </button>
             <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Central de informações da equipe de Serviços Corporativo.')">
                 Informações gerais sobre o portal
             </button>
@@ -26,18 +80,152 @@
     <div class="container">
         <section class="section-area">
             <p class="label-linha">Módulos e Processos</p>
-            <h2 class="titulo-secao">Pesquisa de Satisfação de Serviços</h2>
-            
-            <p>
-                
-            <h4>TOTVS Analytics - Dashboard</h4>
-            <p><strong>Objetivo:</strong> Acesso rápido ao dashboard no TOTVS Analytics.</p>
-            <div class="dashboard-embed">
-                <p><a href="https://analytics.totvs.com.br/dashboard.html#workspace=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3&dashboard=/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/470033" target="_blank" rel="noopener">Abrir dashboard no Analytics TOTVS</a></p>
-                <iframe src="https://analytics.totvs.com.br/dashboard.html#workspace=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3&dashboard=/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/470033" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            <h2 class="titulo-secao">Pesquisa de Satisfação de Serviços (NPS)</h2>
+
+            <div class="nps-section">
+                <div class="nps-accordion">
+                    <details>
+                        <summary>O que é a Pesquisa de Satisfação de Serviços?</summary>
+                        <p>A Pesquisa de Satisfação de Serviços, também conhecida como <strong>NPS Transacional</strong>, é o processo utilizado pela TOTVS para <strong style="color: #3aa4f0;">medir a satisfação</strong> dos clientes em relação aos serviços prestados pelas áreas de Serviços.</p>
+                        <p>Seu principal objetivo é <strong style="color: #3aa4f0;">acompanhar a percepção</strong> dos clientes sobre as entregas realizadas, <strong>identificar oportunidades de melhoria</strong> e apoiar a <strong>evolução contínua</strong> da experiência do cliente.</p>
+                        <p>As pesquisas são conduzidas de forma <strong>independente</strong> pelo time de Voz do Cliente e pela área de Serviços Corporativos, garantindo <strong>imparcialidade</strong> na coleta, análise e consolidação dos resultados.</p>
+                    </details>
+                    <details>
+                        <summary>O que é NPS?</summary>
+                        <p>O <strong>Net Promoter Score (NPS)</strong> é uma <strong style="color: #3aa4f0;">metodologia internacional</strong> utilizada para <strong>medir a satisfação</strong> e a <strong style="color: #3aa4f0;">lealdade</strong> dos clientes.</p>
+                        <p>O indicador mede a <strong>probabilidade de um cliente recomendar</strong> os serviços da TOTVS para um amigo, colega ou parceiro, utilizando uma escala de <strong style="color: #ffb800;">0 a 10</strong>.</p>
+                    </details>
+                    <details>
+                        <summary>Como funciona a pesquisa?</summary>
+                        <p>As pesquisas são <strong>enviadas mensalmente</strong> por e-mail aos clientes elegíveis por meio da plataforma <strong style="color: #3aa4f0;">Qualtrics</strong>.</p>
+                        <blockquote><strong>"Em uma escala de 0 a 10, o quanto você indicaria os Serviços da TOTVS para um amigo, colega ou parceiro?"</strong></blockquote>
+                        <p>Após responder essa pergunta, o cliente pode <strong>complementar sua avaliação</strong> informando o motivo da nota atribuída e avaliando aspectos como:</p>
+                        <ul>
+                            <li><strong>Gerenciamento de projetos</strong>;</li>
+                            <li><strong>Conhecimento da equipe</strong>;</li>
+                            <li><strong>Qualidade da entrega</strong>;</li>
+                            <li><strong>Cumprimento dos prazos</strong>;</li>
+                            <li><strong>Clareza da comunicação</strong>.</li>
+                        </ul>
+                    </details>
+                </div>
             </div>
-            
-            </p>
+
+            <div class="nps-section">
+                <div class="nps-accordion">
+                    <details>
+                        <summary>Quem pode receber a pesquisa?</summary>
+                        <p>Mensalmente é <strong>gerada uma base de clientes elegíveis</strong> para pesquisa, considerando critérios definidos no procedimento interno.</p>
+                        <p>Podem receber a <strong style="color: #3aa4f0;">Pesquisa de Satisfação</strong> clientes que:</p>
+                        <ul>
+                            <li>Não possuam e-mail com domínio <strong>@totvs</strong> cadastrado no contato do cliente no projeto do PSA;</li>
+                            <li>Não tenham respondido pesquisa de satisfação de serviços nos últimos <strong>90 dias</strong>;</li>
+                            <li>Tenham projeto e/ou <strong>banco de horas</strong> com status em <strong>execução</strong> ou <strong>encerrados</strong>, com mais de <strong>40 horas</strong> realizadas entre o trimestre anterior e o trimestre vigente.</li>
+                        </ul>
+                        <p>As pesquisas são enviadas na <strong>primeira terça-feira de cada mês</strong>, com <strong>lembretes semanais</strong> durante o período de vigência da pesquisa.</p>
+                    </details>
+                    <details>
+                        <summary>Classificação das notas</summary>
+                        <p>De acordo com a metodologia NPS, os clientes são <strong>classificados em três grupos</strong>:</p>
+                        <p><strong style="color: #e74c3c;">● Detratores (0 a 6)</strong><br>Clientes <strong>insatisfeitos</strong> com a experiência recebida, com maior probabilidade de relatar <strong>experiências negativas</strong>.</p>
+                        <p><strong style="color: #f39c12;">● Neutros (7 e 8)</strong><br>Clientes <strong>satisfeitos</strong>, porém sem alto nível de <strong>fidelização</strong>.</p>
+                        <p><strong style="color: #27ae60;">● Promotores (9 e 10)</strong><br>Clientes <strong>altamente satisfeitos</strong>, com grande probabilidade de <strong>recomendar</strong> os serviços da TOTVS.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="nps-section">
+                <h3>Como é calculado o NPS?</h3>
+                <p>O indicador considera apenas os clientes classificados como <strong style="color: #27ae60;">Promotores</strong> e <strong style="color: #e74c3c;">Detratores</strong>.</p>
+                <p><strong>Fórmula:</strong></p>
+                <p style="background-color: #f0f0f0; padding: 15px; border-radius: 8px;"><strong style="font-size: 1.1em;">NPS = % de Clientes Promotores − % de Clientes Detratores</strong></p>
+                
+                <div class="nps-accordion">
+                    <details>
+                        <summary>Ver exemplo de cálculo</summary>
+                        <p>Em uma pesquisa com <strong>100 clientes</strong>:</p>
+                        <ul>
+                            <li><strong style="color: #e74c3c;">20 responderam entre 0 e 6</strong> (20% Detratores);</li>
+                            <li><strong style="color: #f39c12;">30 responderam 7 ou 8</strong> (30% Neutros);</li>
+                            <li><strong style="color: #27ae60;">50 responderam 9 ou 10</strong> (50% Promotores).</li>
+                        </ul>
+                        <p style="background-color: #f0f0f0; padding: 15px; border-radius: 8px;"><strong>Resultado:</strong> NPS = 50% − 20% = <strong style="font-size: 1.2em; color: #27ae60;">30</strong></p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="nps-section">
+                <h3>Zonas de Classificação</h3>
+                <p style="margin: 15px 0;"><strong style="background-color: #27ae60; color: white; padding: 5px 10px; border-radius: 4px;">75 a 100</strong> — Zona de Excelência</p>
+                <p style="margin: 15px 0;"><strong style="background-color: #3aa4f0; color: white; padding: 5px 10px; border-radius: 4px;">50 a 74</strong> — Zona de Qualidade</p>
+                <p style="margin: 15px 0;"><strong style="background-color: #f39c12; color: white; padding: 5px 10px; border-radius: 4px;">0 a 49</strong> — Zona de Aperfeiçoamento</p>
+                <p style="margin: 15px 0;"><strong style="background-color: #e74c3c; color: white; padding: 5px 10px; border-radius: 4px;">-100 a -1</strong> — Zona Crítica</p>
+            </div>
+
+            <div class="nps-section">
+                <div class="nps-accordion">
+                    <details>
+                        <summary>Como acontece o processo?</summary>
+                        <ol>
+                            <li><strong>Serviços Corporativos</strong> gera mensalmente a <strong style="color: #3aa4f0;">base de clientes elegíveis</strong> a partir das informações registradas no <strong>PSA</strong>.</li>
+                            <li>Time de <strong>Voz do Cliente</strong> realiza o <strong>disparo das pesquisas</strong> por e-mail utilizando a plataforma <strong style="color: #3aa4f0;">Qualtrics</strong>.</li>
+                            <li>Clientes <strong>respondem à pesquisa</strong> e <strong>avaliam sua experiência</strong> com os serviços prestados.</li>
+                            <li>Resultados são <strong>consolidados</strong> e <strong>disponibilizados no Analytics</strong>.</li>
+                            <li>Unidades de Serviços <strong>acompanham seus indicadores</strong> e <strong>analisam os feedbacks</strong> recebidos.</li>
+                        </ol>
+                    </details>
+                </div>
+            </div>
+            <div class="nps-section">
+                <h3>Resultados e Indicadores</h3>
+                <p>Os resultados das Pesquisas de Satisfação podem ser acompanhados por meio dos painéis do <strong style="color: #3aa4f0;">Analytics</strong>, que disponibilizam <strong>indicadores consolidados</strong>, <strong>informações sobre a execução das pesquisas</strong> e <strong>detalhamento das respostas</strong> dos clientes.</p>
+
+                <h4><a href="https://analytics.totvs.com.br/#s=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3|workspaceDashboardPage|/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/470033|a54b76016ff9" target="_blank" rel="noopener">NPS de Serviços</a></h4>
+                <p>Painel com os <strong>principais indicadores de NPS</strong>, permitindo <strong style="color: #3aa4f0;">acompanhar a evolução</strong> dos resultados por <strong>unidade</strong>, <strong>período</strong> e demais <strong>filtros disponíveis</strong>.</p>
+                <p><strong>Atualização:</strong> Semanal | <strong>Acesso:</strong> Aba NPS de Serviços</p>
+
+                <h4><a href="https://analytics.totvs.com.br/#s=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3|workspaceDashboardPage|/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/470033|a54b76016ff9" target="_blank" rel="noopener">Performance de Pesquisas</a></h4>
+                <p>Painel com os <strong>indicadores de execução</strong> das pesquisas, como:</p>
+                <ul>
+                    <li><strong>Pesquisas enviadas</strong>;</li>
+                    <li><strong>Contatos inválidos</strong>.</li>
+                </ul>
+                <p><strong>Atualização:</strong> Mensal | <strong>Acesso:</strong> Aba Performance de Pesquisas</p>
+
+                <div class="dashboard-embed">
+                    <iframe src="https://analytics.totvs.com.br/dashboard.html#workspace=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3&dashboard=/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/470033" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://analytics.totvs.com.br/#s=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3|workspaceDashboardPage|/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/4525761|a8a6d9a76a2d" target="_blank" rel="noopener">Detalhes da Pesquisa de Satisfação</a></h4>
+                <p>Disponibiliza uma <strong>visão detalhada</strong> das pesquisas realizadas, incluindo:</p>
+                <ul>
+                    <li><strong>Nota atribuída</strong> pelo cliente;</li>
+                    <li><strong>Comentários registrados</strong>;</li>
+                    <li><strong>Dados da pesquisa</strong>.</li>
+                </ul>
+                <p><strong style="color: #e74c3c;">Acesso disponível apenas para Gerentes e Heads das Unidades de Serviços.</strong></p>
+                <p><strong>Atualização:</strong> Semanal</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://analytics.totvs.com.br/dashboard.html#workspace=/gdc/workspaces/ap2z6ah6lsiy2zez0xpe38y837e1nwh3&dashboard=/gdc/md/ap2z6ah6lsiy2zez0xpe38y837e1nwh3/obj/4525761" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+            </div>
+
+            <div class="nps-section">
+                <h3>Materiais de apoio</h3>
+                <ul>
+                    <li><a href="https://fluig.totvs.com/portal/p/10097/ecmnavigation?app_ecm_navigation_doc=10302700" target="_blank" rel="noopener"><strong>Procedimento de Pesquisa de Satisfação de Serviços</strong></a></li>
+                    <li><a href="https://gemini.google.com/gem/1s4EPH9pWga4FKdk9UqaHeDXm1f07QsD7?usp=sharing" target="_blank" rel="noopener"><strong>GEM – Pesquisa de Satisfação</strong></a></li>
+                </ul>
+            </div>
+
+            <div class="nps-section">
+                <h3>Dúvidas e Suporte</h3>
+                <p>Todas as <strong>dúvidas</strong>, <strong>solicitações</strong> e <strong>tratativas</strong> relacionadas à Pesquisa de Satisfação de Serviços (NPS) devem ser registradas por meio do <strong style="color: #3aa4f0;">Portal Zendesk</strong>.</p>
+                <p style="background-color: #f8f9fa; padding: 15px; border-radius: 8px;"><strong>Como abrir um chamado:</strong><br>Acesse <a href="https://suporte.interno.totvs.io/hc/pt-br" target="_blank" rel="noopener"><strong>Portal Zendesk</strong></a><br><strong>Categoria:</strong> AR → Serviços Corporativos → Área: CX Serviços</p>
+                <p style="background-color: #fff3cd; padding: 15px; border-radius: 8px; border-left: 4px solid #f39c12;"><strong>Importante:</strong> Mesmo que a interação ocorra por e-mail ou chat, o registro do ticket no Zendesk é <strong>indispensável</strong>.</p>
+                <p><strong>Entre em contato direto:</strong> <a href="mailto:servicos.nps@totvs.com.br"><strong style="color: #3aa4f0;">servicos.nps@totvs.com.br</strong></a></p>
+            </div>
+
         </section>
     </div>
 

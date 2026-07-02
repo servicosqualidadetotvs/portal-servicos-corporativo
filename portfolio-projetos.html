@@ -6,6 +6,62 @@
     <title>Portfólio de Projetos - Portal de Serviços Corporativo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para as seções do Portfólio */
+        .portfolio-section {
+            margin: 30px 0;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .portfolio-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .portfolio-accordion details {
+            background-color: #f1f3f5;
+            border-left: 4px solid #3aa4f0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            transition: all 0.2s ease;
+        }
+        .portfolio-accordion details:hover {
+            background-color: #e9ecef;
+        }
+        .portfolio-accordion summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+            list-style-type: none;
+        }
+        .portfolio-accordion summary::before {
+            content: '▶ ';
+            display: inline-block;
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+        .portfolio-accordion details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        .portfolio-accordion details p {
+            margin: 10px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+        .portfolio-accordion details ul {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: #444;
+        }
+        .portfolio-accordion details ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+    </style>
 </head>
 <body>
 
@@ -14,6 +70,9 @@
             <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-header">
             <p>Portal de Gestão e Serviços</p>
             <h1>Serviços Corporativo <span>2026</span></h1>
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Voltar para a página inicial">
+                <i class="fa-solid fa-house"></i> Início
+            </button>
             <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Central de informações da equipe de Serviços Corporativo.')">
                 Informações gerais sobre o portal
             </button>
@@ -26,24 +85,131 @@
     <div class="container">
         <section class="section-area">
             <p class="label-linha">Módulos e Processos</p>
-            <h2 class="titulo-secao">Portfólio de Projetos Internos</h2>
+            <h2 class="titulo-secao">Portfólio de Projetos – Serviços Corporativo</h2>
             
-            <p>O <strong>Portfólio de Projetos Internos de Serviços Corporativos</strong> foi desenvolvido para dar visibilidade e reportar o progresso das iniciativas do nosso time.<br>
-Aqui você encontrará:</p>
+            <div class="portfolio-section">
+                <h3>O que é o Portfólio de Projetos?</h3>
+                <p>O <strong style="color: #3aa4f0;">Portfólio de Projetos de Serviços Corporativos</strong> é um painel gerencial desenvolvido para consolidar e acompanhar todas as iniciativas estratégicas conduzidas pela área de Serviços Corporativos (Gestão: <strong>Leonardo Soncin</strong>).</p>
+                <p>Disponível no <strong style="color: #3aa4f0;">Looker Studio</strong>, o portfólio reúne informações atualizadas dos projetos em andamento, proporcionando uma visão única da evolução das iniciativas, apoiando a tomada de decisão, o acompanhamento executivo e a gestão do planejamento estratégico da área.</p>
+            </div>
 
-<ul>
-    <li><strong>Panorama Estratégico:</strong> O alinhamento dos projetos com as metas do negócio.</li>
-    <li><strong>Painel PMO:</strong> Uma visão gerencial e consolidada dos indicadores.</li>
-    <li><strong>Status Detalhado:</strong> O progresso atual e os próximos passos de cada projeto.</li>
-</ul>
+            <div class="portfolio-section">
+                <h3>Objetivo</h3>
+                <p>O Portfólio de Projetos foi criado para proporcionar uma visão consolidada das iniciativas estratégicas da área, permitindo:</p>
+                <ul>
+                    <li><strong>Acompanhar a evolução dos projetos</strong>;</li>
+                    <li><strong>Monitorar indicadores e entregas</strong>;</li>
+                    <li><strong>Apoiar a tomada de decisão gerencial</strong>;</li>
+                    <li><strong>Identificar prioridades e riscos</strong>;</li>
+                    <li><strong>Promover transparência</strong> sobre as iniciativas em andamento;</li>
+                    <li><strong>Facilitar o acompanhamento</strong> dos resultados estratégicos.</li>
+                </ul>
+            </div>
 
-<p>Caso tenha interesse <strong>em</strong> participar ou saber mais sobre <strong>cada</strong> iniciativa, entre em contato com o responsável <strong>pelo</strong> projeto.</p>
-            
-            <h4><a href="https://datastudio.google.com/reporting/2eaada54-d755-46a6-a8e4-c3d839f3490b" class="dashboard-link">Portfólio de Projetos
-            </a></h4>
-            <p><strong>Objetivo:</strong> Portfólio de Projetos</p>
+            <div class="portfolio-section">
+                <h3>Áreas contempladas</h3>
+                <p>O portfólio consolida os projetos das seguintes frentes de atuação:</p>
+                
+                <div class="portfolio-accordion">
+                    <details>
+                        <summary>CX em Serviços</summary>
+                        <p><strong>Gestão:</strong> <strong style="color: #3aa4f0;">Renato Ormelezzi</strong></p>
+                        <p>Projetos relacionados à <strong>experiência do cliente</strong>, <strong>qualidade</strong>, <strong>pesquisas de satisfação</strong>, <strong>indicadores</strong>, <strong>MDW</strong>, <strong>governança</strong> e <strong>evolução dos serviços</strong>.</p>
+                    </details>
+                    <details>
+                        <summary>Gestão de Terceiros</summary>
+                        <p><strong>Gestão:</strong> <strong style="color: #3aa4f0;">Fernanda Baptista</strong></p>
+                        <p>Projetos voltados à <strong>gestão de fornecedores</strong>, <strong>parceiros estratégicos</strong> e <strong>otimização da operação terceirizada</strong>.</p>
+                    </details>
+                    <details>
+                        <summary>Gestão de Compliance, Processos e Resultados</summary>
+                        <p><strong>Gestão:</strong> <strong style="color: #3aa4f0;">Kátia Queiroz</strong></p>
+                        <p>Projetos relacionados à <strong>governança</strong>, <strong>compliance</strong>, <strong>melhoria de processos</strong>, <strong>padronização</strong>, <strong>indicadores</strong> e <strong>gestão de resultados</strong>.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="portfolio-section">
+                <div class="portfolio-accordion">
+                    <details>
+                        <summary>Como funciona?</summary>
+                        <p>Cada projeto possui <strong>informações padronizadas</strong> e <strong>atualizadas mensalmente</strong> pelos responsáveis.</p>
+                        <p>Esses dados são consolidados automaticamente no <strong style="color: #3aa4f0;">Looker Studio</strong>, permitindo diferentes níveis de visualização, desde uma <strong>visão executiva</strong> do portfólio até o <strong>acompanhamento detalhado</strong> de cada iniciativa.</p>
+                        <p>O objetivo é disponibilizar <strong>informações confiáveis e centralizadas</strong> para acompanhamento da evolução dos projetos e apoio à gestão estratégica.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="portfolio-section">
+                <h3>Estrutura do Portfólio</h3>
+                <p>O Portfólio está organizado em três visões complementares.</p>
+                
+                <div class="portfolio-accordion">
+                    <details>
+                        <summary>Panorama Estratégico</summary>
+                        <p>O <strong style="color: #3aa4f0;">Panorama Estratégico</strong> oferece uma visão executiva do portfólio de projetos.</p>
+                        <p>Nele é possível visualizar:</p>
+                        <ul>
+                            <li><strong>Distribuição dos projetos</strong> por pilares estratégicos;</li>
+                            <li><strong>Áreas impactadas</strong> pelas iniciativas;</li>
+                            <li><strong>Projetos classificados</strong> como de alto impacto;</li>
+                            <li><strong>Iniciativas que demandam</strong> apoio da liderança;</li>
+                            <li><strong>Visão consolidada</strong> da atuação da área de Serviços Corporativo.</li>
+                        </ul>
+                        <p>Esta visão é direcionada ao <strong>acompanhamento estratégico</strong> e ao <strong>suporte à tomada de decisão</strong> da liderança.</p>
+                    </details>
+                    <details>
+                        <summary>Painel PMO</summary>
+                        <p>O <strong style="color: #3aa4f0;">Painel PMO</strong> apresenta uma visão operacional do portfólio, permitindo acompanhar o andamento dos projetos por meio de indicadores e filtros gerenciais.</p>
+                        <p><strong>É possível filtrar os projetos por:</strong></p>
+                        <ul>
+                            <li>Área responsável;</li>
+                            <li>Classificação do projeto;</li>
+                            <li>Fase;</li>
+                            <li>Status;</li>
+                            <li>Responsável.</li>
+                        </ul>
+                        <p><strong>O painel também apresenta indicadores como:</strong></p>
+                        <ul>
+                            <li>Quantidade de projetos;</li>
+                            <li>Distribuição por status;</li>
+                            <li>Distribuição por fase;</li>
+                            <li>Projetos por área responsável;</li>
+                            <li>Indicadores gerais do portfólio.</li>
+                        </ul>
+                        <p>Além disso, disponibiliza uma <strong>relação completa de todos os projetos</strong> cadastrados no portfólio.</p>
+                    </details>
+                    <details>
+                        <summary>Status Report</summary>
+                        <p>O <strong style="color: #3aa4f0;">Status Report</strong> permite acompanhar individualmente cada projeto do portfólio.</p>
+                        <p>Ao selecionar uma iniciativa, é possível consultar informações detalhadas como:</p>
+                        <ul>
+                            <li>Responsável pelo projeto;</li>
+                            <li>Data da última atualização;</li>
+                            <li>Status atual;</li>
+                            <li>Resumo executivo;</li>
+                            <li>Evidências da evolução;</li>
+                            <li>Próximos passos;</li>
+                            <li>Macrocronograma;</li>
+                            <li>Principais entregas.</li>
+                        </ul>
+                        <p>Essa visão facilita o <strong>acompanhamento da execução</strong> das iniciativas e o <strong>alinhamento entre as equipes</strong> envolvidas.</p>
+                    </details>
+                </div>
+            </div>
+
+            <h4><a href="https://datastudio.google.com/reporting/2eaada54-d755-46a6-a8e4-c3d839f3490b" class="dashboard-link">Portfólio de Projetos</a></h4>
             <div class="dashboard-embed">
-<iframe width="600" height="44" src="https://datastudio.google.com/embed/reporting/2eaada54-d755-46a6-a8e4-c3d839f3490b/page/p_i64kd7e30d" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>            </div>
+                <iframe width="600" height="44" src="https://datastudio.google.com/embed/reporting/2eaada54-d755-46a6-a8e4-c3d839f3490b/page/p_i64kd7e30d" frameborder="0" style="border:0" allowfullscreen sandbox="allow-storage-access-by-user-activation allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"></iframe>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <div class="portfolio-section" style="background-color: #f8f9fa; border-left: 4px solid #3aa4f0;">
+                <h3>Em caso de dúvidas</h3>
+                <p>Para dúvidas relacionadas ao Portfólio de Projetos ou necessidade de suporte, entre em contato:</p>
+                <p style="font-size: 1.05em;"><strong><a href="mailto:servicos.customerexperience@totvs.com.br" style="color: #3aa4f0;">servicos.customerexperience@totvs.com.br</a></strong></p>
+            </div>
         </section>
     </div>
 

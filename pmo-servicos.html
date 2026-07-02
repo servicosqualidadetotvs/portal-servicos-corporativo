@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PMO Serviços - Portal de Serviços Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilos para as seções do PMO Serviços */
+        .pmo-section {
+            margin: 30px 0;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        .pmo-section h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .pmo-accordion details {
+            background-color: #f1f3f5;
+            border-left: 4px solid #3aa4f0;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            padding: 12px 15px;
+            transition: all 0.2s ease;
+        }
+        .pmo-accordion details:hover {
+            background-color: #e9ecef;
+        }
+        .pmo-accordion summary {
+            font-weight: bold;
+            cursor: pointer;
+            outline: none;
+            color: #333;
+            list-style-type: none;
+        }
+        .pmo-accordion summary::before {
+            content: '▶ ';
+            display: inline-block;
+            margin-right: 8px;
+            transition: transform 0.2s;
+        }
+        .pmo-accordion details[open] summary::before {
+            transform: rotate(90deg);
+        }
+        .pmo-accordion details p {
+            margin: 10px 0;
+            color: #444;
+            line-height: 1.6;
+        }
+        .pmo-accordion details ul {
+            margin: 10px 0;
+            padding-left: 20px;
+            color: #444;
+        }
+        .pmo-accordion details ul li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+        .access-box {
+            background-color: #f0f7ff;
+            border: 2px solid #3aa4f0;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        .access-box h4 {
+            margin-top: 0;
+            color: #3aa4f0;
+        }
+        .access-box a {
+            display: inline-block;
+            background-color: #3aa4f0;
+            color: white;
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        .access-box a:hover {
+            background-color: #2e8bc0;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-header">
+            <p>Portal de Gestão e Serviços</p>
+            <h1>Serviços Corporativo <span>2026</span></h1>
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Voltar para a página inicial">
+                <i class="fa-solid fa-house"></i> Início
+            </button>
+            <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Central de informações da equipe de Serviços Corporativo.')">
+                Informações gerais sobre o portal
+            </button>
+            <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section-area">
+            <p class="label-linha">Módulos e Processos</p>
+            <h2 class="titulo-secao">PMO Serviços</h2>
+            
+            <div class="pmo-section">
+                <h3>O que é o PMO Serviços?</h3>
+                <p>O <strong style="color: #3aa4f0;">PMO Serviços</strong> é o portal corporativo de acompanhamento dos portfólios de projetos e iniciativas estratégicas da Diretoria de Serviços (Gestão: <strong>Hermanno Ribeiro</strong>).</p>
+                <p>Desenvolvido para centralizar as informações dos projetos estratégicos, o portal permite o acompanhamento da evolução das iniciativas, apoiando a <strong>governança</strong>, a <strong>gestão do portfólio</strong> e a <strong>tomada de decisão</strong> da liderança.</p>
+            </div>
+
+            <div class="pmo-section">
+                <h3>Objetivo</h3>
+                <p>O Portal PMO Serviços tem como objetivo consolidar, organizar e disponibilizar os portfólios estratégicos da Diretoria de Serviços em um único ambiente.</p>
+                <p>Por meio do portal, é possível:</p>
+                <ul>
+                    <li><strong>Acompanhar a evolução dos projetos estratégicos</strong>;</li>
+                    <li><strong>Monitorar indicadores e entregas</strong>;</li>
+                    <li><strong>Apoiar reuniões de acompanhamento executivo</strong>;</li>
+                    <li><strong>Promover transparência</strong> sobre as iniciativas em andamento;</li>
+                    <li><strong>Disponibilizar informações atualizadas</strong> para as áreas responsáveis.</li>
+                </ul>
+            </div>
+
+            <div class="pmo-section">
+                <div class="pmo-accordion">
+                    <details>
+                        <summary>Como funciona?</summary>
+                        <p>O Portal de Portfólios PMO Serviços reúne os portfólios estratégicos acompanhados pela Diretoria de Serviços.</p>
+                        <p>Cada portfólio é consolidado e atualizado mensalmente pelo time de <strong style="color: #3aa4f0;">CX em Serviços</strong>, em conjunto com os responsáveis por cada iniciativa ou projeto. As informações são coletadas junto às áreas responsáveis e refletidas nos respectivos portfólios, garantindo uma <strong>visão atualizada</strong> da evolução das iniciativas estratégicas.</p>
+                        <p>Dessa forma, o Portal oferece uma <strong>visão centralizada e confiável</strong> do portfólio de projetos, apoiando o <strong>acompanhamento executivo</strong>, a <strong>tomada de decisão</strong> e a <strong>priorização</strong> das iniciativas estratégicas da Diretoria de Serviços.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="pmo-section">
+                <div class="pmo-accordion">
+                    <details>
+                        <summary>Acesso ao Portal</summary>
+                        <p>O Portal de Portfólio de Projetos PMO Serviços possui <strong style="color: #3aa4f0;">acesso controlado</strong>, disponível apenas para os responsáveis pelos portfólios e profissionais autorizados.</p>
+                        <p>O acesso é realizado mediante <strong>autenticação</strong>, garantindo a <strong>confidencialidade</strong> das informações estratégicas da Diretoria de Serviços.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="pmo-section">
+                <h3>Portal PMO Serviços</h3>
+                <p>Acesse o portal abaixo:</p>
+                <div style="margin: 20px 0; border: 1px solid #ddd; border-radius: 8px; overflow: hidden; background-color: #f9f9f9;">
+                    <iframe src="https://erikarodriguesmiranda.github.io/PMO-SERVICOS/index.html" width="100%" height="800" frameborder="0" style="display: block;" sandbox="allow-same-origin allow-scripts allow-popups allow-forms allow-presentation"></iframe>
+                </div>
+                <p style="text-align: center; color: #666; font-size: 0.9em;">Se o portal não carregar, <a href="https://erikarodriguesmiranda.github.io/PMO-SERVICOS/index.html" target="_blank" rel="noopener">clique aqui para abrir em uma nova aba</a>.</p>
+            </div>
+
+            <hr style="margin: 40px 0; border: none; border-top: 1px solid #e0e0e0;">
+
+            <div class="pmo-section" style="background-color: #f8f9fa; border-left: 4px solid #3aa4f0;">
+                <h3>Em caso de dúvidas</h3>
+                <p>Para dúvidas relacionadas ao Portal PMO Serviços ou necessidade de suporte, entre em contato:</p>
+                <p style="font-size: 1.05em;"><strong><a href="mailto:servicos.customerexperience@totvs.com.br" style="color: #3aa4f0;">servicos.customerexperience@totvs.com.br</a></strong></p>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h2 id="modalTitle">Título</h2>
+            </div>
+            <div class="modal-body"><p id="modalDescription"></p></div>
+            <div class="modal-footer"><button class="btn-close-footer" onclick="fecharModal()">Fechar</button></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-footer">
+        <p>&copy; 2026 Portal de Serviços Corporativo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

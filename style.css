@@ -216,7 +216,8 @@ body.dark .section-area blockquote {
 }
 
 .btn-info,
-.btn-theme {
+.btn-theme,
+.btn-home {
     background: transparent;
     color: white;
     border: 1px solid rgba(255,255,255,0.55);
@@ -228,7 +229,8 @@ body.dark .section-area blockquote {
 }
 
 .btn-info:hover,
-.btn-theme:hover {
+.btn-theme:hover,
+.btn-home:hover {
     background: rgba(255,255,255,0.15);
 }
 
