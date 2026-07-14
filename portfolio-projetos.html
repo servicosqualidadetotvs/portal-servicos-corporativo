@@ -61,6 +61,42 @@
             margin-bottom: 8px;
             line-height: 1.5;
         }
+
+        /* Dark Mode Overrides for Portfolio Section */
+        body.dark .portfolio-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .portfolio-section h3 {
+            color: #ffffff;
+        }
+
+        body.dark .portfolio-accordion details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left-color: #5f8ed1;
+        }
+
+        body.dark .portfolio-accordion details:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark .portfolio-accordion summary {
+            color: var(--text-dark);
+        }
+
+        body.dark .portfolio-accordion details p {
+            color: var(--text-dark);
+        }
+
+        body.dark .portfolio-accordion details ul {
+            color: var(--text-dark);
+        }
+
+        body.dark .portfolio-accordion details ul li {
+            color: var(--text-dark);
+        }
     </style>
 </head>
 <body>

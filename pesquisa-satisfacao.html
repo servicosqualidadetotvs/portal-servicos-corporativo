@@ -56,6 +56,42 @@
         .nps-accordion details ul li {
             margin-bottom: 8px;
         }
+
+        /* Dark Mode Overrides for NPS Section */
+        body.dark .nps-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .nps-section h3 {
+            color: #ffffff;
+        }
+
+        body.dark .nps-accordion details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left-color: #5f8ed1;
+        }
+
+        body.dark .nps-accordion details:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark .nps-accordion summary {
+            color: var(--text-dark);
+        }
+
+        body.dark .nps-accordion details p {
+            color: var(--text-dark);
+        }
+
+        body.dark .nps-accordion details ul {
+            color: var(--text-dark);
+        }
+
+        body.dark .nps-accordion details ul li {
+            color: var(--text-dark);
+        }
     </style>
 </head>
 <body>

@@ -139,6 +139,87 @@
         .pages-accordion details ul li {
             margin-bottom: 8px;
         }
+
+        /* Dark Mode Overrides for Interactive Elements */
+        body.dark .click-card {
+            background-color: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark .click-card:hover {
+            border-color: #5f8ed1;
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark .click-card h3 {
+            color: #ffffff;
+        }
+
+        body.dark .click-card .card-content {
+            color: var(--text-dark);
+            border-top-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .click-card-instruction {
+            color: #7b8794;
+        }
+
+        body.dark .strategy-section {
+            background-color: rgba(255, 255, 255, 0.03);
+            color: var(--text-dark);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        body.dark .strategy-section h3 {
+            color: #ffffff;
+        }
+
+        body.dark .strategy-accordion details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-left-color: #5f8ed1;
+        }
+
+        body.dark .strategy-accordion details:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark .strategy-accordion summary {
+            color: var(--text-dark);
+        }
+
+        body.dark .strategy-accordion details p {
+            color: var(--text-dark);
+        }
+
+        body.dark .pages-accordion details {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.12);
+        }
+
+        body.dark .pages-accordion details:hover {
+            border-color: rgba(95, 142, 209, 0.5);
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+
+        body.dark .pages-accordion summary {
+            color: #ffffff;
+        }
+
+        body.dark .pages-accordion details[open] summary {
+            border-bottom-color: rgba(255, 255, 255, 0.1);
+        }
+
+        body.dark .pages-accordion details p {
+            color: var(--text-dark);
+        }
+
+        body.dark .pages-accordion details ul {
+            color: var(--text-dark);
+        }
+
+        body.dark .pages-accordion details ul li {
+            color: var(--text-dark);
+        }
     </style>
 </head>
 <body>

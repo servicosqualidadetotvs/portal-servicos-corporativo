@@ -183,6 +183,9 @@ body.dark .section-area h3,
 body.dark .section-area h4 {
     color: #ffffff;
 }
+body.dark .section-area h3 {
+    color: #ffffff;
+}
 
 body.dark .section-area p,
 body.dark .section-area li {
@@ -517,9 +520,79 @@ body.dark .favorites-section .label-linha {
 .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9998; backdrop-filter: blur(4px); align-items: center; justify-content: center; }
 .modal-card { background: white; width: min(95vw, 1100px); max-width: 1100px; padding: 30px; border-radius: 12px; position: relative; max-height: 90vh; overflow-y: auto; }
 body.dark .modal-card { background: var(--card-bg-dark); color: var(--text-dark); }
+body.dark .modal-card h2,
+body.dark .modal-card h3,
+body.dark .modal-card h4 {
+    color: #ffffff;
+}
+body.dark .modal-card p,
+body.dark .modal-card li,
+body.dark .modal-card a {
+    color: var(--text-dark);
+}
 .modal-header { display: flex; align-items: center; gap: 10px; color: var(--primary-blue); margin-bottom: 15px; }
 .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #888; }
+body.dark .close-btn { color: var(--text-dark); }
 .btn-close-footer { background: var(--primary-blue); color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer; margin-top: 20px; }
+
+/* Collapsible Elements (details/summary) */
+details {
+    background-color: #f1f3f5;
+    border-left: 4px solid var(--primary-blue);
+    border-radius: 4px;
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    transition: all 0.2s ease;
+}
+
+details:hover {
+    background-color: #e9ecef;
+}
+
+summary {
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    color: #333;
+    list-style-type: '▶ ';
+}
+
+details[open] summary {
+    list-style-type: '▼ ';
+    margin-bottom: 10px;
+}
+
+details p {
+    margin: 0;
+    color: #444;
+    padding-left: 20px;
+    line-height: 1.5;
+}
+
+body.dark details {
+    background-color: rgba(255, 255, 255, 0.08);
+    border-left-color: #5f8ed1;
+}
+
+body.dark details:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark summary {
+    color: var(--text-dark);
+}
+
+body.dark details p {
+    color: var(--text-dark);
+}
+
+body.dark details ul {
+    color: var(--text-dark);
+}
+
+body.dark details ul li {
+    color: var(--text-dark);
+}
 
 /* Footer */
 .footer { background: var(--primary-blue); color: white; padding: 20px; margin-top: 40px; display: flex; justify-content: space-between; align-items: center; }
@@ -764,4 +837,87 @@ body.dark .btn-support:hover {
     background: #4a7ec0;
 }
 
+/* Dark Mode Support for Interactive Card Styles (MDW and other pages) */
+body.dark .click-card {
+    background-color: rgba(255, 255, 255, 0.04);
+    border: 2px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-dark);
+}
+
+body.dark .click-card:hover {
+    border-color: #5f8ed1;
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .click-card h3 {
+    color: #ffffff;
+}
+
+body.dark .click-card .card-content {
+    color: var(--text-dark);
+}
+
+body.dark .click-card-instruction {
+    color: #7b8794;
+}
+
+body.dark .strategy-section {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    color: var(--text-dark);
+}
+
+body.dark .strategy-section h3 {
+    color: #ffffff;
+}
+
+body.dark .strategy-accordion details {
+    background-color: rgba(255, 255, 255, 0.05);
+    border-left-color: #5f8ed1;
+    color: var(--text-dark);
+}
+
+body.dark .strategy-accordion details:hover {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .strategy-accordion summary {
+    color: var(--text-dark);
+}
+
+body.dark .strategy-accordion details p {
+    color: var(--text-dark);
+}
+
+body.dark .pages-accordion {
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+body.dark .pages-accordion details {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    color: var(--text-dark);
+}
+
+body.dark .pages-accordion details:hover {
+    border-color: rgba(95, 142, 209, 0.5);
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+body.dark .pages-accordion summary {
+    color: #ffffff;
+}
+
+body.dark .pages-accordion details p {
+    color: var(--text-dark);
+}
+
+body.dark .pages-accordion details ul {
+    color: var(--text-dark);
+}
+
+body.dark .pages-accordion details ul li {
+    color: var(--text-dark);
+}
 
