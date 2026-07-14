@@ -1,3 +1,27 @@
+function setupHeroVideoBackgrounds() {
+    const heroes = document.querySelectorAll('.hero');
+    heroes.forEach((hero) => {
+        if (!hero.querySelector('.hero-video')) {
+            const video = document.createElement('video');
+            video.className = 'hero-video';
+            video.autoplay = true;
+            video.muted = true;
+            video.loop = true;
+            video.playsInline = true;
+            video.preload = 'metadata';
+
+            const source = document.createElement('source');
+            source.src = 'theme/videobanner.mp4';
+            source.type = 'video/mp4';
+            video.appendChild(source);
+
+            hero.insertBefore(video, hero.firstChild);
+        }
+    });
+}
+
+setupHeroVideoBackgrounds();
+
 // MODAL DE DETALHES
 const modal = document.getElementById("modalOverlay");
 const mTitle = document.getElementById("modalTitle");
