@@ -921,3 +921,69 @@ body.dark .pages-accordion details ul li {
     color: var(--text-dark);
 }
 
+/* Dark Mode Overrides for Inline Styles */
+body.dark p[style*="background-color: #f8f9fa"] {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: var(--text-dark) !important;
+}
+
+body.dark p[style*="color: #666"] {
+    color: var(--text-dark) !important;
+}
+
+body.dark p[style*="background-color: #fff3cd"] {
+    background-color: rgba(243, 156, 18, 0.15) !important;
+    border-left-color: #f39c12 !important;
+}
+
+body.dark div[style*="background-color: #f8f9fa"] {
+    background-color: rgba(255, 255, 255, 0.05) !important;
+    color: var(--text-dark) !important;
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+body.dark div[style*="background-color: #fff3cd"] {
+    background-color: rgba(243, 156, 18, 0.15) !important;
+    color: var(--text-dark) !important;
+    border-left-color: #f39c12 !important;
+}
+
+body.dark a[style*="color: #3aa4f0"],
+body.dark strong[style*="color: #3aa4f0"] {
+    color: #a3c2ff !important;
+}
+
+body.dark div[style*="border: 1px solid #ddd"] {
+    border-color: rgba(255, 255, 255, 0.2) !important;
+}
+
+body.dark p[style*="background-color: #f0f0f0"] {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: var(--text-dark) !important;
+}
+
+body.dark strong[style*="background-color: #27ae60"],
+body.dark strong[style*="background-color: #3aa4f0"],
+body.dark strong[style*="background-color: #f39c12"],
+body.dark strong[style*="background-color: #e74c3c"] {
+    color: white !important;
+    padding: 5px 10px !important;
+    border-radius: 4px !important;
+}
+
+body.dark strong[style*="background-color: #27ae60"] {
+    background-color: #2ecc71 !important;
+}
+
+body.dark strong[style*="background-color: #3aa4f0"] {
+    background-color: #5f8ed1 !important;
+}
+
+body.dark strong[style*="background-color: #f39c12"] {
+    background-color: #f39c12 !important;
+}
+
+body.dark strong[style*="background-color: #e74c3c"] {
+    background-color: #e74c3c !important;
+}
+
