@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura - Portal de Serviços Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-header">
+            <p>Portal de Gestão e Serviços</p>
+            <h1>Estrutura</h1>
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Voltar para a página inicial">
+                <i class="fa-solid fa-house"></i> Início
+            </button>
+            <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Página com informações sobre a estrutura do portal e dos processos.')">
+                Informações gerais sobre a estrutura
+            </button>
+            <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section-area">
+            <p class="label-linha">Estrutura</p>
+            <h2 class="titulo-secao">Conheça Nossa Estrutura</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur a nisi vel elit placerat tincidunt. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+            <div class="strategy-section">
+                <h3>Organização</h3>
+                <div class="strategy-accordion">
+                    <details>
+                        <summary>Visão Geral</summary>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer euismod sem non nunc elementum, in gravida justo egestas.</p>
+                    </details>
+                    <details>
+                        <summary>Processos</summary>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris ullamcorper dui nec rhoncus tristique.</p>
+                    </details>
+                </div>
+            </div>
+
+            <div class="strategy-section">
+                <h3>Próximos passos</h3>
+                <div class="pages-accordion">
+                    <details>
+                        <summary>Planejamento</summary>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus rutrum diam at metus egestas luctus.</p>
+                    </details>
+                    <details>
+                        <summary>Execução</summary>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce scelerisque urna in mi malesuada, vel laoreet turpis vestibulum.</p>
+                    </details>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h2 id="modalTitle">Título</h2>
+            </div>
+            <div class="modal-body"><p id="modalDescription"></p></div>
+            <div class="modal-footer"><button class="btn-close-footer" onclick="fecharModal()">Fechar</button></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-footer">
+        <p>&copy; 2026 Portal de Serviços Corporativo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

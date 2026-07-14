@@ -33,69 +33,75 @@
             
             <p>Abaixo estão listados os principais dashboards e processos para o acompanhamento estratégico do portfólio, margens e investimentos das unidades de serviço.</p>
 
+            <div class="tabs" role="tablist" aria-label="Filtrar dashboards">
+                <button class="tab-btn active" data-tab="gestao" role="tab" aria-selected="true">Gestão</button>
+                <button class="tab-btn" data-tab="terceiros" role="tab" aria-selected="false">Terceiros</button>
+            </div>
+
             <hr>
-            
-            <!-- Placeholder dash will be inserted as the LAST dashboard on the page -->
-            
 
-            <h4><a href="https://lookerstudio.google.com/reporting/b13b4b82-d986-4f21-be56-732c56a90662/page/p_b51eahrzud" class="dashboard-link">Acompanhamento de Horas - Projetos Recorrentes</a></h4>
-            <p><strong>Objetivo:</strong> Monitorar o consumo de horas para contratos Recorrentes, comparando o que foi vendido versus o que está sendo executado. Permite o controle preventivo do orçamento de horas, destacando projetos que já ultrapassaram o limite acordado ou que apresentam tendência de estouro antes da finalização.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/b13b4b82-d986-4f21-be56-732c56a90662/page/p_b51eahrzud" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            <div class="dashboard-group" data-category="gestao">
+                <h4><a href="https://lookerstudio.google.com/reporting/b13b4b82-d986-4f21-be56-732c56a90662/page/p_b51eahrzud" class="dashboard-link">Acompanhamento de Horas - Projetos Recorrentes</a></h4>
+                <p><strong>Objetivo:</strong> Monitorar o consumo de horas para contratos Recorrentes, comparando o que foi vendido versus o que está sendo executado. Permite o controle preventivo do orçamento de horas, destacando projetos que já ultrapassaram o limite acordado ou que apresentam tendência de estouro antes da finalização.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/b13b4b82-d986-4f21-be56-732c56a90662/page/p_b51eahrzud" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://lookerstudio.google.com/reporting/cbcc88e4-a882-4b0a-aea8-eaa699e480bb/page/LmEsD" class="dashboard-link">Cardápio de Oportunidades</a></h4>
+                <p><strong>Objetivo:</strong> Fornece visibilidade para otimizar o resultado financeiro, através da reversão de valores retidos, saneamento de projetos, projetos sem movimentação e que poderão cair na regra de bloqueio.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/cbcc88e4-a882-4b0a-aea8-eaa699e480bb/page/LmEsD" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://lookerstudio.google.com/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" class="dashboard-link">Distribuição de Portfólio por CP</a></h4>
+                <p><strong>Objetivo:</strong> Gerenciar a capacidade produtiva dos Gerentes e Coordenadores, apoiando na distribuição do portfólio de projetos e possíveis contratações.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://lookerstudio.google.com/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_zho4lqpm0d" class="dashboard-link">Portfólio de Projetos</a></h4>
+                <p><strong>Objetivo:</strong> Fornece informações de novos projetos abertos, projetos encerrados, eficiência, NPS, estoque de horas, visando o gerenciamento do portfólio de projetos.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://lookerstudio.google.com/reporting/cef9dc41-f1b8-44d9-8349-fdcdf9ed1c04/page/dNYbF" class="dashboard-link">Acompanhamento de Margem dos Projetos Recorrentes</a></h4>
+                <p><strong>Objetivo:</strong> Monitorar a saúde financeira de projetos de fluxo contínuo, assegurando que a execução esteja em conformidade com o planejamento financeiro. Essa comparação permite à gestão identificar rapidamente quedas de rentabilidade e verificar o desvio da margem vendida com a realizada até o momento.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/cef9dc41-f1b8-44d9-8349-fdcdf9ed1c04/page/dNYbF" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
+
+                <h4><a href="https://lookerstudio.google.com/u/0/reporting/4dd9fbbb-7916-407e-900b-187c994856af/page/p_kmjt3cm55c" class="dashboard-link">Solicitações de Investimentos Aprovadas x Retorno Esperado</a></h4>
+                <p><strong>Objetivo:</strong> Mensura o retorno após o investimento aprovado frente novas vendas ou ações de retenção, avaliando se o custo investido para conquistar ou manter o cliente trouxe o retorno financeiro esperado. Fornece uma visão estratégica para direcionar decisões futuras com base no histórico comprovado de rentabilidade de cada cliente.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/4dd9fbbb-7916-407e-900b-187c994856af/page/p_kmjt3cm55c" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
             </div>
 
-            <h4><a href="https://lookerstudio.google.com/reporting/cbcc88e4-a882-4b0a-aea8-eaa699e480bb/page/LmEsD" class="dashboard-link">Cardápio de Oportunidades</a></h4>
-            <p><strong>Objetivo:</strong> Fornece visibilidade para otimizar o resultado financeiro, através da reversão de valores retidos, saneamento de projetos, projetos sem movimentação e que poderão cair na regra de bloqueio.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/cbcc88e4-a882-4b0a-aea8-eaa699e480bb/page/LmEsD" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
+            <div class="dashboard-group" data-category="terceiros" hidden>
+                <h4><a href="https://datastudio.google.com/reporting/9b56c667-75ef-4e3d-a710-250997081d76" class="dashboard-link">Prestadores de Serviço - Gestão de Terceiros</a></h4>
+                <p><strong>Objetivo:</strong> Centralização de todos os fornecedores com contrato ativo, valor hora de contrato, acessos ativos dos Consultores, avaliação dos fornecedores.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/9b56c667-75ef-4e3d-a710-250997081d76/page/p_5p7jr9691d" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
 
-            <h4><a href="https://lookerstudio.google.com/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" class="dashboard-link">Distribuição de Portfólio por CP</a></h4>
-            <p><strong>Objetivo:</strong> Gerenciar a capacidade produtiva dos Gerentes e Coordenadores, apoiando na distribuição do portfólio de projetos e possíveis contratações.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
+                <h4><a href="https://datastudio.google.com/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465" class="dashboard-link">Treinamento/Certificação - Gestão de Terceiros</a></h4>
+                <p><strong>Objetivo:</strong> Dash que concentra quais consultores realizaram o treinamento MIT e Reforma Tributaria.</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465/page/5LuYF" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
 
-            <h4><a href="https://lookerstudio.google.com/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_zho4lqpm0d" class="dashboard-link">Portfólio de Projetos</a></h4>
-            <p><strong>Objetivo:</strong> Fornece informações de novos projetos abertos, projetos encerrados, eficiência, NPS, estoque de horas, visando o gerenciamento do portfólio de projetos.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/06f1beb8-5aa6-4da5-bbe0-5a390ba0b3fa/page/p_4qe3eje2xd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
+                <h4><a href="https://datastudio.google.com/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5" class="dashboard-link">Proposta de Exceção de Terceiros x Valores Pagos</a></h4>
+                <p><strong>Objetivo:</strong> Controle de quantidade de propostas de exceção por fornecedor, projeto e unidade. </p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5/page/p_y9oljvgdwd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
 
-            <h4><a href="https://lookerstudio.google.com/reporting/cef9dc41-f1b8-44d9-8349-fdcdf9ed1c04/page/dNYbF" class="dashboard-link">Acompanhamento de Margem dos Projetos Recorrentes</a></h4>
-            <p><strong>Objetivo:</strong> Monitorar a saúde financeira de projetos de fluxo contínuo, assegurando que a execução esteja em conformidade com o planejamento financeiro. Essa comparação permite à gestão identificar rapidamente quedas de rentabilidade e verificar o desvio da margem vendida com a realizada até o momento.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/cef9dc41-f1b8-44d9-8349-fdcdf9ed1c04/page/dNYbF" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-
-            <h4><a href="https://lookerstudio.google.com/u/0/reporting/4dd9fbbb-7916-407e-900b-187c994856af/page/p_kmjt3cm55c" class="dashboard-link">Solicitações de Investimentos Aprovadas x Retorno Esperado</a></h4>
-            <p><strong>Objetivo:</strong> Mensura o retorno após o investimento aprovado frente novas vendas ou ações de retenção, avaliando se o custo investido para conquistar ou manter o cliente trouxe o retorno financeiro esperado. Fornece uma visão estratégica para direcionar decisões futuras com base no histórico comprovado de rentabilidade de cada cliente.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/4dd9fbbb-7916-407e-900b-187c994856af/page/p_kmjt3cm55c" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-
-            <h4><a href="https://datastudio.google.com/reporting/9b56c667-75ef-4e3d-a710-250997081d76" class="dashboard-link">Prestadores de Serviço - Gestão de Terceiros</a></h4>
-            <p><strong>Objetivo:</strong> Centralização de todos os fornecedores com contrato ativo, valor hora de contrato, acessos ativos dos Consultores, avaliação dos fornecedores.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/9b56c667-75ef-4e3d-a710-250997081d76/page/p_5p7jr9691d" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-
-            <h4><a href="https://datastudio.google.com/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465" class="dashboard-link">Treinamento/Certificação - Gestão de Terceiros</a></h4>
-            <p><strong>Objetivo:</strong> Dash que concentra quais consultores realizaram o treinamento MIT e Reforma Tributaria.</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465/page/5LuYF" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-
-            <h4><a href="https://datastudio.google.com/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5" class="dashboard-link">Proposta de Exceção de Terceiros x Valores Pagos</a></h4>
-            <p><strong>Objetivo:</strong> Controle de quantidade de propostas de exceção por fornecedor, projeto e unidade. </p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5/page/p_y9oljvgdwd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
-            </div>
-
-            <h4><a href="https://datastudio.google.com/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0" class="dashboard-link">Gestão de Terceiros - Fechamento</a></h4>
-            <p><strong>Objetivo:</strong> Dash de fechamento de terceiros com numeros consolidados mes a mes de apontamentos de hora e escopo fechado de cada uma das unidades e fornecedores</p>
-            <div class="dashboard-embed">
-                <iframe src="https://datastudio.google.com/embed/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0/page/p_dz1dp4wuyd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                <h4><a href="https://datastudio.google.com/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0" class="dashboard-link">Gestão de Terceiros - Fechamento</a></h4>
+                <p><strong>Objetivo:</strong> Dash de fechamento de terceiros com numeros consolidados mes a mes de apontamentos de hora e escopo fechado de cada uma das unidades e fornecedores</p>
+                <div class="dashboard-embed">
+                    <iframe src="https://datastudio.google.com/embed/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0/page/p_dz1dp4wuyd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+                </div>
             </div>
 
         </section>

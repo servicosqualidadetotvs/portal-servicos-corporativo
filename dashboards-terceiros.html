@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards - Terceiros - Portal de Serviços Corporativo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-header">
+            <p>Portal de Gestão e Serviços</p>
+            <h1>Dashboards - Terceiros</h1>
+            <button class="btn-home" onclick="window.location.href='index.html'" title="Voltar para a página inicial">
+                <i class="fa-solid fa-house"></i> Início
+            </button>
+            <button class="btn-info" onclick="abrirModal('Informações Gerais', 'Painel com os dashboards relacionados à gestão de terceiros.')">
+                Informações gerais sobre os dashboards
+            </button>
+            <button class="btn-theme" onclick="toggleTheme()" title="Alternar Tema">
+                <i class="fa-solid fa-moon"></i>
+            </button>
+        </div>
+    </header>
+
+    <div class="container">
+        <section class="section-area">
+            <p class="label-linha">Terceiros</p>
+            <h2 class="titulo-secao">Gestão de Terceiros</h2>
+            <p>Abaixo estão listados os dashboards dedicados à gestão de terceiros, fornecedores e contratos.</p>
+            <hr>
+
+            <h4><a href="https://datastudio.google.com/reporting/9b56c667-75ef-4e3d-a710-250997081d76" class="dashboard-link">Prestadores de Serviço - Gestão de Terceiros</a></h4>
+            <p><strong>Objetivo:</strong> Centralização de todos os fornecedores com contrato ativo, valor hora de contrato, acessos ativos dos Consultores, avaliação dos fornecedores.</p>
+            <div class="dashboard-embed">
+                <iframe src="https://datastudio.google.com/embed/reporting/9b56c667-75ef-4e3d-a710-250997081d76/page/p_5p7jr9691d" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+
+            <h4><a href="https://datastudio.google.com/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465" class="dashboard-link">Treinamento/Certificação - Gestão de Terceiros</a></h4>
+            <p><strong>Objetivo:</strong> Dash que concentra quais consultores realizaram o treinamento MIT e Reforma Tributaria.</p>
+            <div class="dashboard-embed">
+                <iframe src="https://datastudio.google.com/embed/reporting/df4433af-e9f4-404f-98f0-37c4e14d7465/page/5LuYF" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+
+            <h4><a href="https://datastudio.google.com/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5" class="dashboard-link">Proposta de Exceção de Terceiros x Valores Pagos</a></h4>
+            <p><strong>Objetivo:</strong> Controle de quantidade de propostas de exceção por fornecedor, projeto e unidade.</p>
+            <div class="dashboard-embed">
+                <iframe src="https://datastudio.google.com/embed/reporting/9db24f4f-4555-4607-88f9-420c8258f8a5/page/p_y9oljvgdwd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+
+            <h4><a href="https://datastudio.google.com/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0" class="dashboard-link">Gestão de Terceiros - Fechamento</a></h4>
+            <p><strong>Objetivo:</strong> Dash de fechamento de terceiros com números consolidados mês a mês de apontamentos de hora e escopo fechado de cada unidade e fornecedor.</p>
+            <div class="dashboard-embed">
+                <iframe src="https://datastudio.google.com/embed/reporting/a2fb3fdb-fe0b-4f24-b952-2664deec27c0/page/p_dz1dp4wuyd" width="100%" height="600" frameborder="0" allowfullscreen sandbox="allow-scripts allow-same-origin allow-popups allow-forms"></iframe>
+            </div>
+        </section>
+    </div>
+
+    <div id="modalOverlay" class="modal-overlay">
+        <div class="modal-card">
+            <span class="close-btn" onclick="fecharModal()">&times;</span>
+            <div class="modal-header">
+                <i class="fa-solid fa-circle-info"></i>
+                <h2 id="modalTitle">Título</h2>
+            </div>
+            <div class="modal-body"><p id="modalDescription"></p></div>
+            <div class="modal-footer"><button class="btn-close-footer" onclick="fecharModal()">Fechar</button></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <img src="logo-totvs-branco.webp" alt="TOTVS Logo" class="logo-footer">
+        <p>&copy; 2026 Portal de Serviços Corporativo. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

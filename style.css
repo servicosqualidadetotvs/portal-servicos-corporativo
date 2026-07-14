@@ -10,9 +10,33 @@
     --border-dark: #444444;
 }
 
+/* Declarando a fonte Regular */
+@font-face {
+    font-family: 'TOTVS';
+    src: url('theme/TOTVS-Regular.ttf') format('truetype');
+    font-weight: normal; /* ou 400 */
+    font-style: normal;
+}
+
+/* Declarando a fonte Bold */
+@font-face {
+    font-family: 'TOTVS';
+    src: url('theme/TOTVS-Bold.ttf') format('truetype');
+    font-weight: bold; /* ou 700 */
+    font-style: normal;
+}
+
+/* Declarando a fonte Light */
+@font-face {
+    font-family: 'TOTVS';
+    src: url('theme/TOTVS-Light.ttf') format('truetype');
+    font-weight: 300; 
+    font-style: normal;
+}
+
 body {
     margin: 0;
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'TOTVS', sans-serif;
     font-size: 16px;
     line-height: 1.75;
     letter-spacing: 0.01em;
@@ -170,6 +194,18 @@ body.dark .section-area blockquote {
     color: #d5e4ff;
 }
 
+body.dark .tab-btn {
+    border-color: var(--border-dark);
+    background: rgba(255,255,255,0.06);
+    color: var(--text-dark);
+}
+
+body.dark .tab-btn.active {
+    background: #5f8ed1;
+    border-color: #5f8ed1;
+    color: #ffffff;
+}
+
 .hero {
     position: relative;
     min-height: 380px;
@@ -250,7 +286,7 @@ body.dark .modal-header { color: white; }
 
 /* Modais */
 .modal-overlay { display: none; position: fixed; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9998; backdrop-filter: blur(4px); align-items: center; justify-content: center; }
-.modal-card { background: white; width: 90%; max-width: 500px; padding: 30px; border-radius: 12px; position: relative; }
+.modal-card { background: white; width: min(95vw, 1100px); max-width: 1100px; padding: 30px; border-radius: 12px; position: relative; max-height: 90vh; overflow-y: auto; }
 body.dark .modal-card { background: var(--card-bg-dark); color: var(--text-dark); }
 .modal-header { display: flex; align-items: center; gap: 10px; color: var(--primary-blue); margin-bottom: 15px; }
 .close-btn { position: absolute; top: 15px; right: 20px; font-size: 24px; cursor: pointer; color: #888; }
@@ -262,6 +298,39 @@ body.dark .modal-card { background: var(--card-bg-dark); color: var(--text-dark)
 .footer a { color: white; }
 .logo-header { width: 150px; height: auto; margin-bottom: 10px; }
 .logo-footer { width: 100px; height: auto; margin-bottom: 10px; }
+
+/* Dashboard Tabs */
+.tabs {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0 8px;
+}
+
+.tab-btn {
+    border: 1px solid #d8e2ea;
+    background: #f5f7fb;
+    color: var(--primary-blue);
+    padding: 10px 16px;
+    border-radius: 999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+    background: #e9f0f7;
+}
+
+.tab-btn.active {
+    background: var(--primary-blue);
+    color: #ffffff;
+    border-color: var(--primary-blue);
+}
+
+.dashboard-group[hidden] {
+    display: none;
+}
 
 /* Dashboard Embeds */
 .dashboard-embed {
@@ -389,4 +458,79 @@ body.dark .guide-section a {
 
 body.dark .guide-section a:hover {
     color: #a3c2ff;
+}
+
+/* Support Section */
+.support-section {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(0, 45, 91, 0.05), rgba(243, 156, 18, 0.05));
+    margin-top: 30px;
+}
+
+.support-title {
+    font-size: 28px;
+    color: var(--primary-blue);
+    margin: 0 0 12px;
+    font-weight: 700;
+}
+
+body.dark .support-title {
+    color: #ffffff;
+}
+
+.support-subtitle {
+    color: #555555;
+    font-size: 16px;
+    margin-bottom: 24px;
+}
+
+body.dark .support-subtitle {
+    color: var(--text-dark);
+}
+
+.support-route {
+    margin: 24px 0;
+}
+
+.route-badge {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+}
+
+body.dark .route-badge {
+    background: #5f8ed1;
+}
+
+.btn-support {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 16px 0;
+}
+
+.btn-support:hover {
+    background: #144a84;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 45, 91, 0.3);
+}
+
+body.dark .btn-support {
+    background: #5f8ed1;
+}
+
+body.dark .btn-support:hover {
+    background: #4a7ec0;
 }
