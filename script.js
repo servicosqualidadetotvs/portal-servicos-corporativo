@@ -20,7 +20,295 @@ function setupHeroVideoBackgrounds() {
     });
 }
 
+function setupGlobalSearch() {
+    const heroContent = document.querySelector('.hero-content');
+    if (!heroContent || heroContent.querySelector('.hero-search')) {
+        return;
+    }
+
+    const wrapper = document.createElement('div');
+    wrapper.className = 'hero-search-wrapper';
+    wrapper.innerHTML = `
+        <i class="fa-solid fa-magnifying-glass hero-search-icon"></i>
+        <input type="text" class="hero-search" placeholder="Buscar serviços, dashboards ou ferramentas..." aria-label="Buscar serviços">
+    `;
+
+    heroContent.appendChild(wrapper);
+
+    const input = wrapper.querySelector('.hero-search');
+    const cards = Array.from(document.querySelectorAll('.card:not(.favorite-card)'));
+    const sections = Array.from(document.querySelectorAll('.section-area'));
+    const searchCache = new Map();
+
+    const normalizeText = (value) => {
+        return (value || '')
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/[\u0300-\u036f]/g, '')
+            .trim();
+    };
+
+    const getTargetPage = (card) => {
+        const dataPage = card.getAttribute('data-page');
+        if (dataPage) {
+            return dataPage;
+        }
+
+        const onclick = card.getAttribute('onclick') || '';
+        const match = onclick.match(/window\.open\(['"]([^'"]+)['"]/i);
+        return match ? match[1] : null;
+    };
+
+    const getCardText = async (card) => {
+        const title = card.querySelector('p')?.textContent || '';
+        const targetPage = getTargetPage(card);
+
+        if (!targetPage) {
+            return normalizeText(title);
+        }
+
+        if (searchCache.has(targetPage)) {
+            return searchCache.get(targetPage);
+        }
+
+        try {
+            const response = await fetch(targetPage, { cache: 'no-store' });
+            if (!response.ok) {
+                throw new Error('Page not found');
+            }
+            const html = await response.text();
+            const temp = document.createElement('div');
+            temp.innerHTML = html;
+            const bodyText = temp.textContent || '';
+            const combinedText = `${title} ${bodyText}`;
+            searchCache.set(targetPage, normalizeText(combinedText));
+            return searchCache.get(targetPage);
+        } catch (error) {
+            const combinedText = `${title}`;
+            searchCache.set(targetPage, normalizeText(combinedText));
+            return searchCache.get(targetPage);
+        }
+    };
+
+    const updateVisibility = async (query) => {
+        const normalizedQuery = normalizeText(query);
+
+        if (!normalizedQuery) {
+            cards.forEach((card) => {
+                card.style.display = '';
+            });
+            sections.forEach((section) => {
+                section.style.display = '';
+            });
+            return;
+        }
+
+        const visibleCards = [];
+        for (const card of cards) {
+            const searchableText = await getCardText(card);
+            const isMatch = searchableText.includes(normalizedQuery);
+            card.style.display = isMatch ? '' : 'none';
+            if (isMatch) {
+                visibleCards.push(card);
+            }
+        }
+
+        sections.forEach((section) => {
+            const sectionCards = Array.from(section.querySelectorAll('.card'));
+            const hasVisibleCards = sectionCards.some((card) => card.style.display !== 'none');
+            section.style.display = hasVisibleCards ? '' : 'none';
+        });
+    };
+
+    input.addEventListener('input', (event) => {
+        updateVisibility(event.target.value);
+    });
+}
+
+function setupFavorites() {
+    const container = document.querySelector('.container');
+    if (!container || document.querySelector('.favorites-section')) {
+        return;
+    }
+
+    const favoritesSection = document.createElement('section');
+    favoritesSection.className = 'favorites-section';
+    favoritesSection.innerHTML = `
+        <div class="favorites-header">
+            <button class="favorites-toggle" type="button" aria-expanded="true">
+                <span class="favorites-title">
+                    <span class="label-linha">Fixados</span>
+                    <h2 class="titulo-secao">Fixados</h2>
+                </span>
+                <i class="fa-solid fa-chevron-up favorites-icon"></i>
+            </button>
+        </div>
+        <div class="favorites-grid"></div>
+    `;
+
+    const firstSection = container.querySelector('.section-area');
+    if (firstSection) {
+        container.insertBefore(favoritesSection, firstSection);
+    } else {
+        container.appendChild(favoritesSection);
+    }
+
+    const favoritesGrid = favoritesSection.querySelector('.favorites-grid');
+    const favoritesToggle = favoritesSection.querySelector('.favorites-toggle');
+    const favoritesIcon = favoritesSection.querySelector('.favorites-icon');
+    const cards = Array.from(document.querySelectorAll('.card'));
+    const storageKey = 'portal-servicos-favoritos';
+
+    const getStoredFavorites = () => {
+        try {
+            const stored = localStorage.getItem(storageKey);
+            return stored ? JSON.parse(stored) : [];
+        } catch (error) {
+            return [];
+        }
+    };
+
+    const saveFavorites = (favorites) => {
+        try {
+            localStorage.setItem(storageKey, JSON.stringify(favorites));
+        } catch (error) {
+            // Ignore storage errors in static environments.
+        }
+    };
+
+    const getCardIdentifier = (card) => {
+        const title = card.querySelector('p')?.textContent?.trim() || 'card';
+        const page = card.getAttribute('data-page') || (card.getAttribute('onclick') || '').match(/window\.open\(['"]([^'"]+)['"]/i)?.[1] || title;
+        return `${page}|${title}`;
+    };
+
+    const buildFavoriteCard = (favoriteId) => {
+        const parts = favoriteId.split('|');
+        const page = parts[0] || '';
+        const title = parts.slice(1).join('|') || 'Favorito';
+        const originalCard = cards.find((card) => getCardIdentifier(card) === favoriteId);
+
+        if (originalCard) {
+            const favoriteCard = originalCard.cloneNode(true);
+            favoriteCard.classList.add('favorite-card');
+            favoriteCard.querySelector('.card-favorite-toggle')?.remove();
+
+            const favoriteButton = document.createElement('button');
+            favoriteButton.className = 'card-favorite-toggle active';
+            favoriteButton.type = 'button';
+            favoriteButton.setAttribute('aria-label', 'Remover dos fixados');
+            favoriteButton.innerHTML = '<i class="fa-solid fa-thumbtack"></i>';
+            favoriteButton.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const currentFavorites = getStoredFavorites().filter((id) => id !== favoriteId);
+                saveFavorites(currentFavorites);
+                renderFavorites();
+                updateCardButtons();
+            });
+
+            favoriteCard.insertBefore(favoriteButton, favoriteCard.firstChild);
+            return favoriteCard;
+        }
+
+        const fallbackCard = document.createElement('div');
+        fallbackCard.className = 'card favorite-card favorite-card-fallback';
+        const normalizedTitle = title.replace(/\.html$/i, '').replace(/[-_]/g, ' ').trim();
+        const displayLabel = normalizedTitle && normalizedTitle !== 'card' ? normalizedTitle : '';
+        fallbackCard.innerHTML = `
+            <button class="card-favorite-toggle active" type="button" aria-label="Remover dos fixados">
+                <i class="fa-solid fa-thumbtack"></i>
+            </button>
+            ${displayLabel ? `<p>${displayLabel}</p>` : ''}
+        `;
+
+        fallbackCard.querySelector('.card-favorite-toggle').addEventListener('click', (event) => {
+            event.stopPropagation();
+            const currentFavorites = getStoredFavorites().filter((id) => id !== favoriteId);
+            saveFavorites(currentFavorites);
+            renderFavorites();
+            updateCardButtons();
+        });
+
+        if (page) {
+            fallbackCard.addEventListener('click', () => {
+                window.open(page, '_blank');
+            });
+        }
+
+        return fallbackCard;
+    };
+
+    const renderFavorites = () => {
+        const favorites = getStoredFavorites();
+        if (!favorites.length) {
+            favoritesSection.style.display = 'none';
+            return;
+        }
+
+        favoritesSection.style.display = '';
+        favoritesGrid.innerHTML = '';
+        favorites.forEach((favoriteId) => {
+            favoritesGrid.appendChild(buildFavoriteCard(favoriteId));
+        });
+    };
+
+    const updateCardButtons = () => {
+        const favorites = getStoredFavorites();
+        cards.forEach((card) => {
+            const button = card.querySelector('.card-favorite-toggle');
+            if (!button) {
+                return;
+            }
+            const isFavorite = favorites.includes(getCardIdentifier(card));
+            button.classList.toggle('active', isFavorite);
+            button.setAttribute('aria-label', isFavorite ? 'Remover dos fixados' : 'Adicionar aos fixados');
+            button.innerHTML = isFavorite ? '<i class="fa-solid fa-thumbtack"></i>' : '<i class="fa-solid fa-thumbtack"></i>';
+        });
+    };
+
+    cards.forEach((card) => {
+        if (card.querySelector('.card-favorite-toggle')) {
+            return;
+        }
+
+        const favoriteButton = document.createElement('button');
+        favoriteButton.className = 'card-favorite-toggle';
+        favoriteButton.type = 'button';
+        favoriteButton.setAttribute('aria-label', 'Adicionar aos fixados');
+        favoriteButton.innerHTML = '<i class="fa-solid fa-thumbtack"></i>';
+
+        favoriteButton.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+
+            const id = getCardIdentifier(card);
+            const favorites = getStoredFavorites();
+            const isFavorite = favorites.includes(id);
+            const nextFavorites = isFavorite
+                ? favorites.filter((favoriteId) => favoriteId !== id)
+                : [...favorites, id];
+
+            saveFavorites(nextFavorites);
+            updateCardButtons();
+            renderFavorites();
+        });
+
+        card.insertBefore(favoriteButton, card.firstChild);
+    });
+
+    favoritesToggle.addEventListener('click', () => {
+        const isCollapsed = favoritesGrid.classList.toggle('collapsed');
+        favoritesToggle.setAttribute('aria-expanded', String(!isCollapsed));
+        favoritesIcon.classList.toggle('collapsed', isCollapsed);
+    });
+
+    updateCardButtons();
+    renderFavorites();
+}
+
 setupHeroVideoBackgrounds();
+setupGlobalSearch();
+setupFavorites();
 
 // MODAL DE DETALHES
 const modal = document.getElementById("modalOverlay");
@@ -77,12 +365,23 @@ capacitacaoLinks.forEach((link) => {
 });
 
 // TOGGLE THEME
-function toggleTheme() {
-    document.body.classList.toggle('dark');
+function applyTheme(isDark) {
+    document.body.classList.toggle('dark', isDark);
     const icon = document.querySelector('.btn-theme i');
-    if (document.body.classList.contains('dark')) {
-        icon.className = 'fa-solid fa-sun';
-    } else {
-        icon.className = 'fa-solid fa-moon';
+    if (icon) {
+        icon.className = isDark ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     }
+    localStorage.setItem('portal-servicos-theme', isDark ? 'dark' : 'light');
+}
+
+function toggleTheme() {
+    const isDark = !document.body.classList.contains('dark');
+    applyTheme(isDark);
+}
+
+const savedTheme = localStorage.getItem('portal-servicos-theme');
+if (savedTheme === 'dark') {
+    applyTheme(true);
+} else {
+    applyTheme(false);
 }
