@@ -49,14 +49,24 @@ function setupGlobalSearch() {
     };
 
     const getTargetPage = (card) => {
+        // Prefer explicit data-page attribute
         const dataPage = card.getAttribute('data-page');
-        if (dataPage) {
-            return dataPage;
-        }
+        if (dataPage) return dataPage;
 
+        // If the card contains an anchor, prefer its href
+        const anchor = card.querySelector('a[href]');
+        if (anchor) return anchor.getAttribute('href');
+
+        // Parse common onclick patterns: window.open, window.location, window.location.href
         const onclick = card.getAttribute('onclick') || '';
-        const match = onclick.match(/window\.open\(['"]([^'"]+)['"]/i);
-        return match ? match[1] : null;
+        let match = onclick.match(/window\.open\(['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+        match = onclick.match(/window\.location(?:\.href)?\s*=\s*['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+        match = onclick.match(/window\.location\.replace\(['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+
+        return null;
     };
 
     const getCardText = async (card) => {
@@ -177,14 +187,43 @@ function setupFavorites() {
     };
 
     const getCardIdentifier = (card) => {
-        const title = card.querySelector('p')?.textContent?.trim() || 'card';
-        const page = card.getAttribute('data-page') || (card.getAttribute('onclick') || '').match(/window\.open\(['"]([^'"]+)['"]/i)?.[1] || title;
+        const title = card.querySelector('p')?.textContent?.trim() || card.querySelector('h4')?.textContent?.trim() || 'card';
+
+        // Determine target page using multiple strategies to avoid falling back to titles with accents
+        const onclick = card.getAttribute('onclick') || '';
+        const page = card.getAttribute('data-page')
+            || onclick.match(/window\.open\(['"]([^'"]+)['"]/i)?.[1]
+            || onclick.match(/window\.location(?:\.href)?\s*=\s*['"]([^'"]+)['"]/i)?.[1]
+            || card.querySelector('a[href]')?.getAttribute('href')
+            || title;
+
         return `${page}|${title}`;
+    };
+
+    const getTargetPage = (card) => {
+        // Prefer explicit data-page attribute
+        const dataPage = card.getAttribute('data-page');
+        if (dataPage) return dataPage;
+
+        // If the card contains an anchor, prefer its href
+        const anchor = card.querySelector('a[href]');
+        if (anchor) return anchor.getAttribute('href');
+
+        // Parse common onclick patterns: window.open, window.location, window.location.href
+        const onclick = card.getAttribute('onclick') || '';
+        let match = onclick.match(/window\.open\(['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+        match = onclick.match(/window\.location(?:\.href)?\s*=\s*['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+        match = onclick.match(/window\.location\.replace\(['"]([^'"]+)['"]/i);
+        if (match) return match[1];
+
+        return null;
     };
 
     const buildFavoriteCard = (favoriteId) => {
         const parts = favoriteId.split('|');
-        const page = parts[0] || '';
+        let page = parts[0] || '';
         const title = parts.slice(1).join('|') || 'Favorito';
         const originalCard = cards.find((card) => getCardIdentifier(card) === favoriteId);
 
@@ -207,6 +246,16 @@ function setupFavorites() {
             });
 
             favoriteCard.insertBefore(favoriteButton, favoriteCard.firstChild);
+            favoriteCard.dataset.favoriteId = favoriteId;
+            // ensure clicking the favorite card navigates to the target page in the same tab
+            if (page) {
+                favoriteCard.addEventListener('click', (ev) => {
+                    // ignore clicks on the favorite toggle button
+                    if (ev.target.closest('.card-favorite-toggle')) return;
+                    window.location.href = page;
+                });
+            }
+
             return favoriteCard;
         }
 
@@ -230,19 +279,69 @@ function setupFavorites() {
         });
 
         if (page) {
+            // open in same tab for pinned/fallback cards
             fallbackCard.addEventListener('click', () => {
-                window.open(page, '_blank');
+                window.location.href = page;
             });
         }
+
+        fallbackCard.dataset.favoriteId = favoriteId;
 
         return fallbackCard;
     };
 
     const renderFavorites = () => {
-        const favorites = getStoredFavorites();
+        // repair and resolve stored favorites to real page URLs
+        let favorites = getStoredFavorites();
         if (!favorites.length) {
             favoritesSection.style.display = 'none';
             return;
+        }
+
+        // build a title -> page map from current cards for robust resolution
+        const titleToPage = new Map();
+        const normalizeForMap = (s) => (s || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
+        cards.forEach((c) => {
+            const t = c.querySelector('p')?.textContent?.trim() || c.querySelector('h4')?.textContent?.trim() || '';
+            const p = getTargetPage(c) || '';
+            if (t && p) {
+                titleToPage.set(normalizeForMap(t), p);
+            }
+        });
+
+        // attempt to repair favorites that stored human titles instead of filenames
+        let repaired = false;
+        favorites = favorites.map((fav) => {
+            const parts = fav.split('|');
+            let storedPage = parts[0] || '';
+            let title = parts.slice(1).join('|') || '';
+
+            // If the stored favorite was saved as a single title string (no '|'), treat that as the title
+            if ((!title || title.trim() === '') && storedPage && !storedPage.includes('.') && /\s/.test(storedPage)) {
+                title = storedPage;
+                storedPage = '';
+            }
+
+            const normalizedTitle = normalizeForMap(title);
+
+            // if storedPage looks like a title or is empty, try to resolve using title->page map
+            const looksLikeTitle = !storedPage || (!storedPage.includes('.') && /\s/.test(storedPage));
+            if (looksLikeTitle && title && titleToPage.has(normalizedTitle)) {
+                const resolved = titleToPage.get(normalizedTitle);
+                repaired = true;
+                return `${resolved}|${title}`;
+            }
+
+            // If nothing matched but we only had a title, convert to title-only canonical form
+            if (!storedPage && title) {
+                return `${title}|${title}`;
+            }
+
+            return fav;
+        });
+
+        if (repaired) {
+            saveFavorites(favorites);
         }
 
         favoritesSection.style.display = '';
@@ -290,7 +389,18 @@ function setupFavorites() {
 
             saveFavorites(nextFavorites);
             updateCardButtons();
-            renderFavorites();
+            // update favorites grid immediately
+            if (!isFavorite) {
+                // added
+                favoritesGrid.appendChild(buildFavoriteCard(id));
+                favoritesSection.style.display = '';
+            } else {
+                // removed
+                Array.from(favoritesGrid.children).forEach((child) => {
+                    if (child.dataset.favoriteId === id) child.remove();
+                });
+                if (!favoritesGrid.children.length) favoritesSection.style.display = 'none';
+            }
         });
 
         card.insertBefore(favoriteButton, card.firstChild);
@@ -304,6 +414,50 @@ function setupFavorites() {
 
     updateCardButtons();
     renderFavorites();
+
+    // Safety pass: ensure every .card has a favorite button (fixes pages where buttons were missing)
+    const ensureButtonsPresent = () => {
+        const allCards = Array.from(document.querySelectorAll('.card'));
+        allCards.forEach((card) => {
+            if (card.querySelector('.card-favorite-toggle')) return;
+
+            const favoriteButton = document.createElement('button');
+            favoriteButton.className = 'card-favorite-toggle';
+            favoriteButton.type = 'button';
+            favoriteButton.setAttribute('aria-label', 'Adicionar aos fixados');
+            favoriteButton.innerHTML = '<i class="fa-solid fa-thumbtack"></i>';
+            favoriteButton.style.zIndex = 5;
+
+            favoriteButton.addEventListener('click', (event) => {
+                event.preventDefault();
+                event.stopPropagation();
+
+                const id = getCardIdentifier(card);
+                const favorites = getStoredFavorites();
+                const isFavorite = favorites.includes(id);
+                const nextFavorites = isFavorite
+                    ? favorites.filter((favoriteId) => favoriteId !== id)
+                    : [...favorites, id];
+
+                saveFavorites(nextFavorites);
+                updateCardButtons();
+                // update favorites grid immediately
+                if (!isFavorite) {
+                    favoritesGrid.appendChild(buildFavoriteCard(id));
+                    favoritesSection.style.display = '';
+                } else {
+                    Array.from(favoritesGrid.children).forEach((child) => {
+                        if (child.dataset.favoriteId === id) child.remove();
+                    });
+                    if (!favoritesGrid.children.length) favoritesSection.style.display = 'none';
+                }
+            });
+
+            card.insertBefore(favoriteButton, card.firstChild);
+        });
+    };
+
+    ensureButtonsPresent();
 }
 
 setupHeroVideoBackgrounds();
